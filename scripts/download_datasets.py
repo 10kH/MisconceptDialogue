@@ -16,6 +16,7 @@ def download_mathdial():
     if (dest / "done.marker").exists():
         print("[MathDial] Already downloaded, skipping.")
         return
+    dest.mkdir(parents=True, exist_ok=True)
     print("[MathDial] Downloading from HuggingFace...")
     try:
         from datasets import load_dataset
@@ -33,6 +34,7 @@ def download_bridge():
     if (dest / "done.marker").exists():
         print("[Bridge] Already downloaded, skipping.")
         return
+    dest.mkdir(parents=True, exist_ok=True)
     print("[Bridge] Cloning from GitHub...")
     repo_dir = dest / "repo"
     if not repo_dir.exists():
@@ -50,6 +52,7 @@ def download_bea2025():
     if (dest / "done.marker").exists():
         print("[BEA2025] Already downloaded, skipping.")
         return
+    dest.mkdir(parents=True, exist_ok=True)
     print("[BEA2025] Cloning from GitHub...")
     repo_dir = dest / "repo"
     if not repo_dir.exists():
@@ -68,6 +71,7 @@ def download_eedi():
     if (dest / "done.marker").exists():
         print("[EEDI] Already downloaded, skipping.")
         return
+    dest.mkdir(parents=True, exist_ok=True)
     print("[EEDI] Note: Full EEDI Kaggle dataset requires Kaggle credentials.")
     print("[EEDI] Downloading publicly available misconception taxonomy...")
     # Download the NeurIPS 2020 EEDI dataset (public)
@@ -107,12 +111,15 @@ def download_mrbench():
     if (dest / "done.marker").exists():
         print("[MRBench] Already downloaded, skipping.")
         return
+    dest.mkdir(parents=True, exist_ok=True)
     print("[MRBench] Cloning from GitHub (UnifyingAITutorEvaluation)...")
     # MRBench is part of the same repo as BEA 2025
     bea_repo = BASE_DIR / "bea2025" / "repo"
     if bea_repo.exists():
         # Symlink to avoid double download
-        os.symlink(str(bea_repo), str(dest / "repo_link"))
+        repo_link = dest / "repo_link"
+        if not repo_link.exists() and not repo_link.is_symlink():
+            os.symlink(str(bea_repo), str(repo_link))
         (dest / "done.marker").touch()
         print("[MRBench] Linked from BEA2025 repo.")
     else:
@@ -133,6 +140,7 @@ def download_misconceptions_benchmark():
     if (dest / "done.marker").exists():
         print("[MisconceptionsBench] Already downloaded, skipping.")
         return
+    dest.mkdir(parents=True, exist_ok=True)
     print("[MisconceptionsBench] Cloning from GitHub...")
     repo_dir = dest / "repo"
     if not repo_dir.exists():
