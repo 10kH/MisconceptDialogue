@@ -59,6 +59,9 @@ python scripts/generate_paper_numbers.py
 python scripts/corrected_results_analysis.py
 
 # 3. Verify Tier-1 final-score audit
+#    NOTE: unlike the two above, this one recomputes from the raw per-dialogue
+#    dumps, so it needs results/exp3v2/2026*/ and results/exp4v2/2026*/ as well
+#    as the *_corrected/ summaries.
 python scripts/recompute_tier1_corrected.py
 ```
 

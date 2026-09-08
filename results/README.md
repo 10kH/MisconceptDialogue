@@ -30,4 +30,6 @@ Place generated result artifacts under the paths below so the audit scripts can 
 
 ## Important
 
-Raw dialogue outputs in `exp3v2/2026*/` and `exp4v2/2026*/` are useful for auditability, but they are not tracked here. The paper-authoritative numbers come from final scoring artifacts in `tier1_corrected/` and `tier2_corrected/`, which score each verification response against the verification problem's gold answer.
+Raw dialogue outputs in `exp3v2/2026*/` and `exp4v2/2026*/` are not tracked here. The paper-authoritative numbers come from final scoring artifacts in `tier1_corrected/` and `tier2_corrected/`, which score each verification response against the verification problem's gold answer.
+
+The raw dumps are not merely supplementary: `scripts/recompute_tier1_corrected.py` recomputes Tier-1 from them and exits with a clear error if they are absent. `generate_paper_numbers.py` and `corrected_results_analysis.py` need only the `*_corrected/` summaries.

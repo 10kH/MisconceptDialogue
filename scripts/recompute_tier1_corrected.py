@@ -69,6 +69,14 @@ def recompute_exp3v2(bank):
 
     n = len(all_results)
     print(f"\nTotal dialogues: {n}")
+    if n == 0:
+        raise SystemExit(
+            "No Exp3v2 dialogues found under results/exp3v2/2026*/cell_*.json.\n"
+            "This script recomputes Tier-1 from the raw per-dialogue dumps, so the\n"
+            "summary-only tier1_corrected/ and tier2_corrected/ directories are not\n"
+            "sufficient. Regenerate the raw run directories (see REPRODUCE.md Track B)\n"
+            "or place existing ones under results/exp3v2/ before rerunning."
+        )
 
     # Overall before/after
     orig_count = sum(1 for r in all_results if r["original_tier1"])
