@@ -1081,7 +1081,7 @@
     "id": "factual_0017",
     "problem": "Simplify the quotient \\(\\dfrac{\\sqrt{-18}\\,\\sqrt{-8}}{\\sqrt{16}}\\) using principal square roots.",
     "student_answer": "\\(\\dfrac{\\sqrt{(-18)(-8)}}{4}=\\dfrac{\\sqrt{144}}{4}=\\dfrac{12}{4}=3\\)",
-    "correct_answer": "\\(-6\\). Using principal square roots, \\(\\sqrt{-18}=3i\\sqrt{2}\\) and \\(\\sqrt{-8}=2i\\sqrt{2}\\), so their product is \\((3i\\sqrt{2})(2i\\sqrt{2})=6i^2\\cdot 2=-12\\). Then \\(-12/\\sqrt{16}=-12/4=-3\\). Wait, recomputing carefully: \\((3i\\sqrt{2})(2i\\sqrt{2})=6i^2(\\sqrt{2}\\sqrt{2})=6(-1)(2)=-12\\), hence the value is \\(-12/4=-3\\).",
+    "correct_answer": "\\(-3\\). Using principal square roots, \\(\\sqrt{-18}=3i\\sqrt{2}\\) and \\(\\sqrt{-8}=2i\\sqrt{2}\\), so their product is \\((3i\\sqrt{2})(2i\\sqrt{2})=6i^2(\\sqrt{2}\\sqrt{2})=6(-1)(2)=-12\\). Then \\(-12/\\sqrt{16}=-12/4=-3\\).",
     "misconception_label": "The student incorrectly applies the real-number product rule \\(\\sqrt{a}\\sqrt{b}=\\sqrt{ab}\\) to negative radicands in the complex setting.",
     "misconception_type": "factual",
     "difficulty": "hard",

@@ -21,6 +21,10 @@ datasets/*
 results/*
 !results/README.md
 
+# Human-evaluation / paper materials: excluded from this repository, but some
+# human-eval scripts still write here by default.
+paper/
+
 # ML/experiment artifacts
 wandb/
 *.pt
