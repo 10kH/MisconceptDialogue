@@ -22,10 +22,10 @@ pip install -r requirements.txt
 cp .env.example .env  # fill in OPENAI_API_KEY if running API-based student/judge experiments
 ```
 
-The release package includes only a blank `.env.example`. Keep real API keys in
-a local `.env` file; `.env` is git-ignored and is not included in `MCD.zip`.
+Only a blank `.env.example` is tracked. Keep real API keys in a local `.env`
+file; `.env` is git-ignored.
 
-## Smoke checks for the software package
+## Smoke checks
 
 These checks verify that the package is syntactically valid and the main entry points are visible. They do not run models or APIs.
 
@@ -39,7 +39,7 @@ python -m src.experiments.exp4v2.run --help
 
 ## Prepare datasets
 
-Datasets are not bundled in `MCD.zip`. Prepare them locally with:
+Dataset payloads are not tracked. Prepare them locally with:
 
 ```bash
 python scripts/download_datasets.py
@@ -49,7 +49,7 @@ Some sources may require manual access or separate credentials. See `datasets/RE
 
 ## Track A: Verify paper numbers from result artifacts
 
-This track requires precomputed outputs under `results/`. The software ZIP does not bundle those outputs by default. If you have generated or separately obtained the result artifacts, place them under the paths documented in `results/README.md`, then run:
+This track requires precomputed outputs under `results/`, which are not tracked in this repository. Once you have generated the result artifacts, place them under the paths documented in `results/README.md`, then run:
 
 ```bash
 # 1. Verify Table 3 / Table 4 numbers
