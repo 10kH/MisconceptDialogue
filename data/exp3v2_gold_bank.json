@@ -1,0 +1,181 @@
+[
+  {
+    "scenario_id": "factual_0001",
+    "misconception_type": "factual",
+    "difficulty": "easy",
+    "tutor_responses": [
+      "I see you said 'undefined.' Let's think about what division means. If I have 0 cookies and I want to share them equally among 5 friends, how many cookies does each friend get?",
+      "Exactly! When you have nothing to share, everyone gets nothing. So 0 divided by 5 gives each person 0 cookies. Now, can you think about what makes 'dividing by zero' different from 'dividing zero by something'?"
+    ],
+    "explanation": "Uses a concrete sharing analogy to help the student distinguish between 0/n (sharing nothing) and n/0 (sharing among nobody). The second turn scaffolds the key distinction without stating the rule directly."
+  },
+  {
+    "scenario_id": "factual_0002",
+    "misconception_type": "factual",
+    "difficulty": "easy",
+    "tutor_responses": [
+      "That's a really common mix-up, so don't worry! Let me ask you this: if you have zero apples and you put them into 100 baskets, how many apples end up in each basket?",
+      "Right \u2014 zero apples spread across any number of baskets is still zero in each one. The tricky part is when someone tries to divide BY zero, which is a totally different situation. What do you think is different about dividing something by zero versus dividing zero by something?"
+    ],
+    "explanation": "Uses a physical distribution analogy (apples into baskets) to make 0/100 intuitive, then prompts the student to articulate the distinction between 0/n and n/0 themselves."
+  },
+  {
+    "scenario_id": "factual_0011",
+    "misconception_type": "factual",
+    "difficulty": "medium",
+    "tutor_responses": [
+      "Interesting answer! Let's explore a pattern together. What is 2^3? And 2^2? And 2^1? Can you write those out and tell me what happens each time the exponent goes down by 1?",
+      "Nice \u2014 so each time we lower the exponent by 1, we divide the result by 2. Following that same pattern, what would 2^0 have to be? And would that same reasoning work for any base, not just 2?"
+    ],
+    "explanation": "Guides the student to discover the zero-exponent rule through a descending-powers pattern (8, 4, 2, ...). The student derives the rule inductively rather than being told it."
+  },
+  {
+    "scenario_id": "factual_0012",
+    "misconception_type": "factual",
+    "difficulty": "medium",
+    "tutor_responses": [
+      "Let's slow down and handle each piece one at a time. Before adding, can you first figure out what 10^0 equals on its own? Try thinking about what the pattern 10^3 = 1000, 10^2 = 100, 10^1 = 10 suggests for the next step.",
+      "Great thinking! Now apply that same logic to 5^0. Once you have both values, what does the full expression 10^0 + 5^0 give you?"
+    ],
+    "explanation": "Breaks the compound expression into parts and uses the descending-powers pattern for base 10. Scaffolds the student to apply the same reasoning to base 5 independently, reinforcing that x^0 = 1 for any nonzero x."
+  },
+  {
+    "scenario_id": "factual_0021",
+    "misconception_type": "factual",
+    "difficulty": "hard",
+    "tutor_responses": [
+      "That's a natural instinct! But let me give you a challenge: can you find two specific numbers where a < b but a^2 is NOT less than b^2? Hint: what happens when one or both of the numbers are negative?",
+      "You're on the right track. Try a = -3 and b = 2. We have -3 < 2, but what are their squares? What does that tell you about whether squaring always preserves the direction of an inequality?"
+    ],
+    "explanation": "Uses a counterexample-finding strategy. The first turn challenges the student to search for a violation, with a gentle hint toward negatives. The second turn provides a concrete pair if needed, letting the student compute and see the failure themselves."
+  },
+  {
+    "scenario_id": "factual_0022",
+    "misconception_type": "factual",
+    "difficulty": "hard",
+    "tutor_responses": [
+      "Good instinct \u2014 reciprocals do flip inequalities in many cases! But let me nudge you: does the rule work for ALL numbers? What happens if one of the numbers is positive and the other is negative? Try picking a specific a and b where a < b but they have different signs."
+    ],
+    "explanation": "Prompts the student to test the boundary case where signs differ (e.g., a = -1, b = 2), which breaks the reciprocal-reversal assumption. A single well-placed Socratic question suffices because the counterexample is easy to compute once the student looks in the right place."
+  },
+  {
+    "scenario_id": "procedural_0001",
+    "misconception_type": "procedural",
+    "difficulty": "easy",
+    "tutor_responses": [
+      "Let's check your work step by step. You started with 2x + 6 = 14. What was the very first thing you did to both sides? Walk me through each move.",
+      "I see \u2014 it looks like you might have divided before subtracting. Here's a good rule of thumb: always undo addition or subtraction first, then tackle multiplication or division. Can you try again, starting by getting rid of that +6?"
+    ],
+    "explanation": "Uses a process-tracing approach: asks the student to verbalize their steps to surface the order-of-operations error. The second turn names the heuristic (undo addition first) without solving the problem, letting the student re-attempt."
+  },
+  {
+    "scenario_id": "procedural_0002",
+    "misconception_type": "procedural",
+    "difficulty": "easy",
+    "tutor_responses": [
+      "Almost there! Let me ask: when you solved 5x + 10 = 35, which operation did you do first \u2014 divide by 5, or subtract 10? Think of the equation like peeling an onion: you want to undo the outermost layer first. Which layer is 'outermost' here?",
+      "Exactly \u2014 the +10 is the outermost operation applied to 5x, so we peel it off first by subtracting 10 from both sides. Now you have 5x = 25. What's the last step?"
+    ],
+    "explanation": "Uses the 'peeling an onion' metaphor to make the order of inverse operations intuitive. The student is guided to subtract before dividing, then completes the final step independently."
+  },
+  {
+    "scenario_id": "procedural_0011",
+    "misconception_type": "procedural",
+    "difficulty": "medium",
+    "tutor_responses": [
+      "Let's test your expansion with a specific number. If x = 1, then (1 + 3)^2 = 4^2 = 16. Now plug x = 1 into your answer \u2014 do you get 16? If not, something might be missing.",
+      "It looks like there's a gap! When we square (x + 3), we're really computing (x + 3)(x + 3). Can you use FOIL \u2014 multiply each term in the first bracket by each term in the second \u2014 and see what you get?"
+    ],
+    "explanation": "Uses numerical substitution as a self-checking strategy so the student discovers the error independently. The second turn redirects to the FOIL method, which makes the missing cross-term visible without stating the answer."
+  },
+  {
+    "scenario_id": "procedural_0012",
+    "misconception_type": "procedural",
+    "difficulty": "medium",
+    "tutor_responses": [
+      "Let's double-check by thinking about what squaring really means. When we write (2x - 4)^2, that's the same as (2x - 4) times (2x - 4). Can you write it out as a multiplication of two brackets and use the distributive property to expand it?",
+      "Great start! Make sure you multiply every term in the first bracket by every term in the second. You should end up with three types of terms. How many terms did you get, and do any of them combine?"
+    ],
+    "explanation": "Redirects the student from the shortcut error to the explicit multiplication form. The second turn scaffolds FOIL without revealing the middle term, asking the student to verify completeness by counting terms."
+  },
+  {
+    "scenario_id": "procedural_0021",
+    "misconception_type": "procedural",
+    "difficulty": "hard",
+    "tutor_responses": [
+      "I see you differentiated each part separately. Let me ask you this: if f(x) = x^3 * sin(x), we have two functions being multiplied together. Do you remember a rule for differentiating a product of two functions? It's different from differentiating a sum.",
+      "Right \u2014 the product rule says (uv)' = u'v + uv'. Here u = x^3 and v = sin(x). Can you find u' and v' separately, then plug them into the formula? Take it one piece at a time."
+    ],
+    "explanation": "Identifies the root procedural error (differentiating factors independently) and prompts recall of the product rule. The second turn provides the formula structure but lets the student carry out the computation, reinforcing the correct procedure."
+  },
+  {
+    "scenario_id": "procedural_0022",
+    "misconception_type": "procedural",
+    "difficulty": "hard",
+    "tutor_responses": [
+      "Let's pause and think about what kind of expression h(x) = x * ln(x) is. We have two functions multiplied together. When two functions are multiplied, can we just differentiate each one separately and multiply the results? What rule applies to products?",
+      "Exactly, we need the product rule! Let u = x and v = ln(x). What is du/dx? What is dv/dx? Now put them together using (uv)' = u'v + uv' and simplify."
+    ],
+    "explanation": "Uses a classification question (what kind of expression is this?) to trigger the student's awareness that a product requires the product rule. The second turn provides scaffolded sub-steps while the student does the actual computation."
+  },
+  {
+    "scenario_id": "conceptual_0001",
+    "misconception_type": "conceptual",
+    "difficulty": "easy",
+    "tutor_responses": [
+      "I like that you're thinking about what happened before! But here's a key question: after you drew a marble and put it back, did the bag change at all? How many red and blue marbles are in the bag for the second draw?",
+      "Exactly \u2014 the bag is back to its original state with 3 red and 7 blue. Since nothing changed, can the probability change? What does that tell you about the chance of drawing red on this second draw?"
+    ],
+    "explanation": "Focuses on the physical mechanism of replacement to make independence concrete. By asking the student to count the marbles before the second draw, the unchanged probability becomes self-evident without invoking abstract rules."
+  },
+  {
+    "scenario_id": "conceptual_0002",
+    "misconception_type": "conceptual",
+    "difficulty": "easy",
+    "tutor_responses": [
+      "That's a really tempting thought \u2014 it feels like a 6 is 'due,' right? But let me ask: does the die have a memory? After 20 rolls, has anything about the die itself changed \u2014 its shape, its weight, the number of sides?",
+      "Right, the die is exactly the same on roll 21 as it was on roll 1. Each roll is a fresh start. So what is the probability of getting a 6 on this next roll, regardless of what happened before?"
+    ],
+    "explanation": "Personifies the die to highlight the absence of memory, making independence tangible. The student is led to see that the physical object hasn't changed, so neither can its probabilities."
+  },
+  {
+    "scenario_id": "conceptual_0011",
+    "misconception_type": "conceptual",
+    "difficulty": "medium",
+    "tutor_responses": [
+      "You said f'(x) > 0 for all x in [0, infinity). That's almost right, but let me ask you to check one specific point: what is f'(0)? Remember, f(x) = x^2, so f'(x) = 2x. What does that give you at x = 0?",
+      "So f'(0) = 0, not positive. But f IS increasing on [0, infinity) \u2014 so what does that tell us about the relationship between 'increasing on an interval' and 'having a strictly positive derivative at every single point'?"
+    ],
+    "explanation": "Uses direct computation at the boundary point x=0 to produce a concrete counterexample to the student's claim. The second turn prompts the student to revise their understanding of the relationship between increasing functions and positive derivatives."
+  },
+  {
+    "scenario_id": "conceptual_0012",
+    "misconception_type": "conceptual",
+    "difficulty": "medium",
+    "tutor_responses": [
+      "That's what many students think! Let me give you a function to explore: try f(x) = x^3. What is f'(0)? And now sketch or think about what the graph of x^3 looks like near the origin \u2014 does it have a peak or a valley at x = 0?",
+      "So f'(0) = 0 for x^3, but the function just flattens out momentarily and keeps going up \u2014 no peak, no valley. What would you call that kind of point? And what does this tell you about the claim that f'(a) = 0 always means a max or min?"
+    ],
+    "explanation": "Provides a concrete function (x^3) as a counterexample to the student's belief. The inflection point at x=0 demonstrates that a zero derivative does not guarantee an extremum, and the student is guided to name and categorize the phenomenon."
+  },
+  {
+    "scenario_id": "conceptual_0019",
+    "misconception_type": "conceptual",
+    "difficulty": "hard",
+    "tutor_responses": [
+      "I can see why you'd think that \u2014 it feels like the even numbers are only 'half' of all integers. But let me ask: can you come up with a way to pair up every integer with exactly one even number, so that nothing is left over on either side? For example, you might try matching 1 with 2, 2 with 4, 3 with 6...",
+      "Notice that every integer n pairs with the even number 2n, and every even number 2n pairs back with n. No integer is left without a partner, and no even number is used twice. In set theory, when you can make a perfect one-to-one pairing like this, what does that say about the sizes of the two sets?"
+    ],
+    "explanation": "Guides the student to construct a bijection between integers and even integers. Rather than asserting the counterintuitive result, the student discovers that a perfect pairing exists, which is the foundational criterion for 'same size' in infinite set theory."
+  },
+  {
+    "scenario_id": "conceptual_0020",
+    "misconception_type": "conceptual",
+    "difficulty": "hard",
+    "tutor_responses": [
+      "Great question to think about! You might be reasoning that since [0,1] is a bounded interval, the rationals in it should be finite. But consider: can you always find another rational number between any two rational numbers? For instance, between 1/4 and 1/3, can you find one?",
+      "Right \u2014 you can always take the average, or find fractions with larger denominators. So the rationals are not finite. Now, the next question is whether they are countably infinite or uncountably infinite. Here's a hint: can you think of a systematic way to list all fractions p/q with 0 < p/q < 1? Maybe by organizing them by the size of the denominator?"
+    ],
+    "explanation": "Uses the density property (always finding a rational between two rationals) to rule out finiteness. Then scaffolds toward countability by suggesting a listing strategy (Stern-Brocot or denominator-based enumeration) without completing it, so the student sees the constructive approach."
+  }
+]

@@ -1,0 +1,38 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
+logs/
+
+# Downloaded dataset payloads (use scripts/download_datasets.py)
+datasets/*
+!datasets/README.md
+
+# Generated experiment outputs
+results/*
+!results/README.md
+
+# ML/experiment artifacts
+wandb/
+*.pt
+*.bin
+*.safetensors
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

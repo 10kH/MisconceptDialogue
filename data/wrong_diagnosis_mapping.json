@@ -1,0 +1,744 @@
+{
+  "factual_0001": {
+    "original_misconception": "miscalculated 20% of 10",
+    "wrong_misconception": "when students mistakenly add two negative numbers, yielding a positive sum, particularly in equations with variables",
+    "wrong_scenario_id": "factual_0009",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0002": {
+    "original_misconception": "when students mistakenly add two negative numbers, yielding a positive sum, particularly in equations with variables",
+    "wrong_misconception": "the student calculated the price of adults and senior citizens  but could not figure out that out of the 3 children one is 14 years old and is considered as adult.",
+    "wrong_scenario_id": "factual_0003",
+    "type": "factual",
+    "n_candidates": 32
+  },
+  "factual_0003": {
+    "original_misconception": "the student calculated the price of adults and senior citizens  but could not figure out that out of the 3 children one is 14 years old and is considered as adult.",
+    "wrong_misconception": "Assumes that any finite group of a given composite order must be cyclic, ignoring noncyclic groups of the same order.",
+    "wrong_scenario_id": "factual_0019",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0004": {
+    "original_misconception": "student assumed that there are a dozen pomelos in each box.  the confusion could not be cleared",
+    "wrong_misconception": "The student incorrectly applies the real-number product rule \\(\\sqrt{a}\\sqrt{b}=\\sqrt{ab}\\) to negative radicands in the complex setting.",
+    "wrong_scenario_id": "factual_0017",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0005": {
+    "original_misconception": "when students confuse signs of operations and signs of numbers, inappropriately applying the rule \"two negatives make a positive\".",
+    "wrong_misconception": "The student incorrectly applies the one-variable bounded monotone convergence theorem to vector-valued sequences in higher dimensions, treating boundedness plus some monotonic behavior as sufficient for convergence in R^n.",
+    "wrong_scenario_id": "factual_0016",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0006": {
+    "original_misconception": "They thought that two layers had 64 books when the question said that they were always 80% extra",
+    "wrong_misconception": "when students misunderstand algebraic terms and equations involving exponents, such as numerical bases raised to algebraic powers, or algebraic expressions raised to numerical or algebraic powers.",
+    "wrong_scenario_id": "factual_0010",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0007": {
+    "original_misconception": "when students mistakenly add two negative numbers, yielding a positive sum, particularly in equations with variables",
+    "wrong_misconception": "Confuses the existence of a limit at a point with continuity there, ignoring that the function value must equal the limit.",
+    "wrong_scenario_id": "factual_0011",
+    "type": "factual",
+    "n_candidates": 32
+  },
+  "factual_0008": {
+    "original_misconception": "when students mistakenly add two negative numbers, yielding a positive sum, particularly in equations with variables",
+    "wrong_misconception": "when students misunderstand algebraic terms and equations involving exponents, such as numerical bases raised to algebraic powers, or algebraic expressions raised to numerical or algebraic powers.",
+    "wrong_scenario_id": "factual_0010",
+    "type": "factual",
+    "n_candidates": 32
+  },
+  "factual_0009": {
+    "original_misconception": "when students mistakenly add two negative numbers, yielding a positive sum, particularly in equations with variables",
+    "wrong_misconception": "The student forgets to reverse the inequality sign when dividing both sides by a negative number.",
+    "wrong_scenario_id": "factual_0032",
+    "type": "factual",
+    "n_candidates": 32
+  },
+  "factual_0010": {
+    "original_misconception": "when students misunderstand algebraic terms and equations involving exponents, such as numerical bases raised to algebraic powers, or algebraic expressions raised to numerical or algebraic powers.",
+    "wrong_misconception": "the student calculated the price of adults and senior citizens  but could not figure out that out of the 3 children one is 14 years old and is considered as adult.",
+    "wrong_scenario_id": "factual_0003",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "procedural_0001": {
+    "original_misconception": "They were subtracting too many from the total that could be sold",
+    "wrong_misconception": "The student calculated too many days, and didn't take into account the full information.",
+    "wrong_scenario_id": "procedural_0003",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0002": {
+    "original_misconception": "did the complicated step of working out how many mystery books there were, but then forgot to add on the other bottom shelf books. Subsequently made additional confusing errors instead of correcting the initial mistake",
+    "wrong_misconception": "I think the student was getting confused as it said double expresso and she took this as meaning two coffees",
+    "wrong_scenario_id": "procedural_0007",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0003": {
+    "original_misconception": "The student calculated too many days, and didn't take into account the full information.",
+    "wrong_misconception": "student made multiple errors and then fixated on the incorrect solution",
+    "wrong_scenario_id": "procedural_0015",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0004": {
+    "original_misconception": "when students wrongly divide fractions by splitting numerators and denominators into separate divisions, ignoring remainders",
+    "wrong_misconception": "Student didn't junderstand how to calculate ratio and proportion.",
+    "wrong_scenario_id": "procedural_0009",
+    "type": "procedural",
+    "n_candidates": 31
+  },
+  "procedural_0005": {
+    "original_misconception": "The student was convinced that he had to divide the group of 60% in half, and then do it again",
+    "wrong_misconception": "Applies a Taylor/Maclaurin series identity by direct substitution at a point outside the series' interval of convergence.",
+    "wrong_scenario_id": "procedural_0034",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0006": {
+    "original_misconception": "They doubled the amount twice instead of once",
+    "wrong_misconception": "did the complicated step of working out how many mystery books there were, but then forgot to add on the other bottom shelf books. Subsequently made additional confusing errors instead of correcting the initial mistake",
+    "wrong_scenario_id": "procedural_0002",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0007": {
+    "original_misconception": "I think the student was getting confused as it said double expresso and she took this as meaning two coffees",
+    "wrong_misconception": "when students struggle to grasp the concept of independent and dependent variables",
+    "wrong_scenario_id": "procedural_0014",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0008": {
+    "original_misconception": "when students struggle to apply correct operations on ratios expressed as fractions",
+    "wrong_misconception": "When differentiating implicitly, the student treats y as a constant-like variable and omits the required dy/dx factor on derivatives of y-terms.",
+    "wrong_scenario_id": "procedural_0028",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0009": {
+    "original_misconception": "Student didn't junderstand how to calculate ratio and proportion.",
+    "wrong_misconception": "Was getting confused with what operation to use for each part of the calculatipn.",
+    "wrong_scenario_id": "procedural_0016",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0010": {
+    "original_misconception": "very basic mistakes with simple addition and subtraction calculations",
+    "wrong_misconception": "The student applies L'Hôpital's rule to a limit that is not of indeterminate form, treating \\(\\infty/0\\) as if it justified differentiation.",
+    "wrong_scenario_id": "procedural_0030",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0011": {
+    "original_misconception": "A mistake when working out each step",
+    "wrong_misconception": "when students misunderstand algebraic terms and equations involving exponents, such as numerical bases raised to algebraic powers, or algebraic expressions raised to numerical or algebraic powers.",
+    "wrong_scenario_id": "procedural_0019",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0012": {
+    "original_misconception": "adding and subtracting the wrong ones",
+    "wrong_misconception": "They were subtracting too many from the total that could be sold",
+    "wrong_scenario_id": "procedural_0001",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0013": {
+    "original_misconception": "when students interchange minuend and subtrahend, reversing subtraction order, causing calculation errors, especially in equations or expressions",
+    "wrong_misconception": "A mistake when working out each step",
+    "wrong_scenario_id": "procedural_0011",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0014": {
+    "original_misconception": "when students struggle to grasp the concept of independent and dependent variables",
+    "wrong_misconception": "In the inductive step, the student assumes the statement for n=k+1 instead of deriving it from the hypothesis for n=k.",
+    "wrong_scenario_id": "procedural_0029",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0015": {
+    "original_misconception": "student made multiple errors and then fixated on the incorrect solution",
+    "wrong_misconception": "Chooses \\(u\\) and \\(dv\\) in integration by parts so that the resulting integral is harder rather than simpler.",
+    "wrong_scenario_id": "procedural_0023",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0016": {
+    "original_misconception": "Was getting confused with what operation to use for each part of the calculatipn.",
+    "wrong_misconception": "when students misunderstand algebraic terms and equations involving exponents, such as numerical bases raised to algebraic powers, or algebraic expressions raised to numerical or algebraic powers.",
+    "wrong_scenario_id": "procedural_0019",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0017": {
+    "original_misconception": "when students wrongly divide fractions by splitting numerators and denominators into separate divisions, ignoring remainders",
+    "wrong_misconception": "They doubled the amount twice instead of once",
+    "wrong_scenario_id": "procedural_0006",
+    "type": "procedural",
+    "n_candidates": 31
+  },
+  "procedural_0018": {
+    "original_misconception": "when students struggle with forming and understanding algebraic expressions and equations.",
+    "wrong_misconception": "when students struggle to grasp the concept of independent and dependent variables",
+    "wrong_scenario_id": "procedural_0014",
+    "type": "procedural",
+    "n_candidates": 32
+  },
+  "procedural_0019": {
+    "original_misconception": "when students misunderstand algebraic terms and equations involving exponents, such as numerical bases raised to algebraic powers, or algebraic expressions raised to numerical or algebraic powers.",
+    "wrong_misconception": "Chooses \\(u\\) and \\(dv\\) in integration by parts so that the resulting integral is harder rather than simpler.",
+    "wrong_scenario_id": "procedural_0023",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0020": {
+    "original_misconception": "when students subtract mixed numbers incorrectly, avoiding regrouping and just subtracting the smaller from the larger number",
+    "wrong_misconception": "I think the student was getting confused as it said double expresso and she took this as meaning two coffees",
+    "wrong_scenario_id": "procedural_0007",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0021": {
+    "original_misconception": "when students wrongly divide fractions by splitting numerators and denominators into separate divisions, ignoring remainders",
+    "wrong_misconception": "The student calculated too many days, and didn't take into account the full information.",
+    "wrong_scenario_id": "procedural_0003",
+    "type": "procedural",
+    "n_candidates": 31
+  },
+  "procedural_0022": {
+    "original_misconception": "when students struggle with forming and understanding algebraic expressions and equations.",
+    "wrong_misconception": "Treats a ratio test limit of 1 as sufficient to conclude convergence instead of recognizing the test is inconclusive at 1.",
+    "wrong_scenario_id": "procedural_0027",
+    "type": "procedural",
+    "n_candidates": 32
+  },
+  "conceptual_0001": {
+    "original_misconception": "The student was adding the home teams wins twice. Even though he was able to solve the probing example he couldn't apply this to his original problem.",
+    "wrong_misconception": "First Jian cot confused with the subtraction, as the problem required you to use the initial amount when subtracting losses. We worked through the correct calculations, then Jian became confused at the statement 'Half the remainder sprout and are immediately eaten'. Jian was insisting 0 survived. ",
+    "wrong_scenario_id": "conceptual_0008",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0002": {
+    "original_misconception": "when students find it challenging to comprehend the various meanings and applications of variables",
+    "wrong_misconception": "when students struggle to grasp the concept of independent and dependent variables",
+    "wrong_scenario_id": "conceptual_0024",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0003": {
+    "original_misconception": "when students misunderstand the equal sign as indicating \"the answer is\" rather than representing a relationship between quantities",
+    "wrong_misconception": "when students struggle to grasp the concept of independent and dependent variables",
+    "wrong_scenario_id": "conceptual_0024",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0004": {
+    "original_misconception": "when students lack unitization skills, unable to treat ratios as composite units to solve problems systematically.",
+    "wrong_misconception": "when students confuse linear and exponential functions' properties and representations.",
+    "wrong_scenario_id": "conceptual_0018",
+    "type": "conceptual",
+    "n_candidates": 34
+  },
+  "conceptual_0005": {
+    "original_misconception": "when students incorrectly assume two variables in an equation must represent distinct numerical values, rather than potentially representing the same expression",
+    "wrong_misconception": "when students misunderstand the equal sign as indicating \"the answer is\" rather than representing a relationship between quantities",
+    "wrong_scenario_id": "conceptual_0003",
+    "type": "conceptual",
+    "n_candidates": 34
+  },
+  "conceptual_0006": {
+    "original_misconception": "when students misunderstand how to identify and use equivalent forms of ratios, including fractions and decimals",
+    "wrong_misconception": "The student assumes that whenever a theorem P -> Q is true, its converse Q -> P is automatically true as well.",
+    "wrong_scenario_id": "conceptual_0031",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0007": {
+    "original_misconception": "The student did not take away the cost of repairs and was insistent it was included in profit",
+    "wrong_misconception": "The student assumes that pointwise convergence on every point of the domain automatically implies uniform convergence.",
+    "wrong_scenario_id": "conceptual_0036",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0008": {
+    "original_misconception": "First Jian cot confused with the subtraction, as the problem required you to use the initial amount when subtracting losses. We worked through the correct calculations, then Jian became confused at the statement 'Half the remainder sprout and are immediately eaten'. Jian was insisting 0 survived. ",
+    "wrong_misconception": "when students struggle to discern the three types of percent problems, relying solely on \"percent times a number equals percentage\" rule",
+    "wrong_scenario_id": "conceptual_0009",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0009": {
+    "original_misconception": "when students struggle to discern the three types of percent problems, relying solely on \"percent times a number equals percentage\" rule",
+    "wrong_misconception": "Assumes that being continuous on an open interval is enough to guarantee boundedness, confusing it with the boundedness result for continuous functions on closed and bounded intervals.",
+    "wrong_scenario_id": "conceptual_0026",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0010": {
+    "original_misconception": "when Students think longer numerals mean larger numbers, misunderstanding place value",
+    "wrong_misconception": "when students misunderstand how to identify and use equivalent forms of ratios, including fractions and decimals",
+    "wrong_scenario_id": "conceptual_0006",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0011": {
+    "original_misconception": "The student cannot see how if 40% = 40 marbles then 60% = 60 marbles hence making 100 marbles",
+    "wrong_misconception": "when students struggle to grasp the concept that a linear function represents a consistent rate of change",
+    "wrong_scenario_id": "conceptual_0020",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0012": {
+    "original_misconception": "when students mistakenly position the decimal point left of the sum, assuming units and tenths combine separately",
+    "wrong_misconception": "The student believes that because both N and R are infinite and decimal expansions can be procedurally generated, the reals must be countable, ignoring that Cantor's diagonal construction always produces a missing real.",
+    "wrong_scenario_id": "conceptual_0025",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0013": {
+    "original_misconception": "when students struggle to grasp that variables can represent changing or varying quantities",
+    "wrong_misconception": "when students incorrectly assume two variables in an equation must represent distinct numerical values, rather than potentially representing the same expression",
+    "wrong_scenario_id": "conceptual_0014",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0014": {
+    "original_misconception": "when students incorrectly assume two variables in an equation must represent distinct numerical values, rather than potentially representing the same expression",
+    "wrong_misconception": "when students misunderstand how to identify and use equivalent forms of ratios, including fractions and decimals",
+    "wrong_scenario_id": "conceptual_0006",
+    "type": "conceptual",
+    "n_candidates": 34
+  },
+  "conceptual_0015": {
+    "original_misconception": "when students incorrectly assume the commutative and associative properties apply to subtraction and division, akin to the \"Switch-Around Rule.\"",
+    "wrong_misconception": "when students misunderstand the equal sign as indicating \"the answer is\" rather than representing a relationship between quantities",
+    "wrong_scenario_id": "conceptual_0003",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0016": {
+    "original_misconception": "when students struggle to connect different representations of the same function (graph, equation, table).",
+    "wrong_misconception": "when students incorrectly assume the commutative and associative properties apply to subtraction and division, akin to the \"Switch-Around Rule.\"",
+    "wrong_scenario_id": "conceptual_0015",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0017": {
+    "original_misconception": "when students struggle to represent key aspects and relationships in patterns, as seen in attempts like graphical representations missing key components",
+    "wrong_misconception": "when students struggle to grasp the concept that a linear function represents a consistent rate of change",
+    "wrong_scenario_id": "conceptual_0020",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0018": {
+    "original_misconception": "when students confuse linear and exponential functions' properties and representations.",
+    "wrong_misconception": "when students misunderstand how to identify and use equivalent forms of ratios, including fractions and decimals",
+    "wrong_scenario_id": "conceptual_0006",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0019": {
+    "original_misconception": "assumed the same variable x for both the quantities",
+    "wrong_misconception": "when students incorrectly assume the commutative and associative properties apply to subtraction and division, akin to the \"Switch-Around Rule.\"",
+    "wrong_scenario_id": "conceptual_0015",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0020": {
+    "original_misconception": "when students struggle to grasp the concept that a linear function represents a consistent rate of change",
+    "wrong_misconception": "The student did not take away the cost of repairs and was insistent it was included in profit",
+    "wrong_scenario_id": "conceptual_0007",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0021": {
+    "original_misconception": "when students confuse linear relationships with direct proportions, believing that because a linear function increases or decreases at a constant rate, it must be a direct proportion.",
+    "wrong_misconception": "Assumes that being continuous on an open interval is enough to guarantee boundedness, confusing it with the boundedness result for continuous functions on closed and bounded intervals.",
+    "wrong_scenario_id": "conceptual_0026",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0022": {
+    "original_misconception": "when students struggle with forming and understanding algebraic expressions and equations.",
+    "wrong_misconception": "when students confuse linear and exponential functions' properties and representations.",
+    "wrong_scenario_id": "conceptual_0018",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0023": {
+    "original_misconception": "when students lack unitization skills, unable to treat ratios as composite units to solve problems systematically.",
+    "wrong_misconception": "Believes that expressing vectors in a different basis can change a linearly dependent set into a linearly independent one.",
+    "wrong_scenario_id": "conceptual_0032",
+    "type": "conceptual",
+    "n_candidates": 34
+  },
+  "conceptual_0024": {
+    "original_misconception": "when students struggle to grasp the concept of independent and dependent variables",
+    "wrong_misconception": "The student believes that because both N and R are infinite and decimal expansions can be procedurally generated, the reals must be countable, ignoring that Cantor's diagonal construction always produces a missing real.",
+    "wrong_scenario_id": "conceptual_0025",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "factual_0011": {
+    "original_misconception": "Confuses the existence of a limit at a point with continuity there, ignoring that the function value must equal the limit.",
+    "wrong_misconception": "Assumes that from a\\mid bc one may conclude a\\mid b or a\\mid c for any divisor a, rather than only in prime-based or coprime settings.",
+    "wrong_scenario_id": "factual_0012",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0012": {
+    "original_misconception": "Assumes that from a\\mid bc one may conclude a\\mid b or a\\mid c for any divisor a, rather than only in prime-based or coprime settings.",
+    "wrong_misconception": "The student believes any nonzero number raised to the 0 power equals 0 instead of 1.",
+    "wrong_scenario_id": "factual_0025",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0013": {
+    "original_misconception": "Assumes that a matrix with all positive entries must have a positive determinant.",
+    "wrong_misconception": "The student thinks a larger denominator makes a unit fraction larger.",
+    "wrong_scenario_id": "factual_0024",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0014": {
+    "original_misconception": "Assumes that if a function is differentiable everywhere, then its derivative is automatically continuous everywhere.",
+    "wrong_misconception": "Assumes the power set of a countably infinite set is also countably infinite because its subsets can supposedly be listed.",
+    "wrong_scenario_id": "factual_0015",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0015": {
+    "original_misconception": "Assumes the power set of a countably infinite set is also countably infinite because its subsets can supposedly be listed.",
+    "wrong_misconception": "Assumes that any finite group of a given composite order must be cyclic, ignoring noncyclic groups of the same order.",
+    "wrong_scenario_id": "factual_0019",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0016": {
+    "original_misconception": "The student incorrectly applies the one-variable bounded monotone convergence theorem to vector-valued sequences in higher dimensions, treating boundedness plus some monotonic behavior as sufficient for convergence in R^n.",
+    "wrong_misconception": "when students confuse signs of operations and signs of numbers, inappropriately applying the rule \"two negatives make a positive\".",
+    "wrong_scenario_id": "factual_0005",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0017": {
+    "original_misconception": "The student incorrectly applies the real-number product rule \\(\\sqrt{a}\\sqrt{b}=\\sqrt{ab}\\) to negative radicands in the complex setting.",
+    "wrong_misconception": "Confuses the existence of a limit at a point with continuity there, ignoring that the function value must equal the limit.",
+    "wrong_scenario_id": "factual_0011",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0018": {
+    "original_misconception": "Adds the probabilities or counts of events directly without subtracting overlaps, forgetting the inclusion-exclusion correction for non-disjoint events.",
+    "wrong_misconception": "The student thinks absolute value keeps a negative sign instead of always giving a nonnegative result.",
+    "wrong_scenario_id": "factual_0036",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0019": {
+    "original_misconception": "Assumes that any finite group of a given composite order must be cyclic, ignoring noncyclic groups of the same order.",
+    "wrong_misconception": "The student incorrectly applies the one-variable bounded monotone convergence theorem to vector-valued sequences in higher dimensions, treating boundedness plus some monotonic behavior as sufficient for convergence in R^n.",
+    "wrong_scenario_id": "factual_0016",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0020": {
+    "original_misconception": "The student incorrectly believes that openness is about being unbounded or having no finite endpoint, rather than every point containing a neighborhood inside the set.",
+    "wrong_misconception": "Confuses the existence of a limit at a point with continuity there, ignoring that the function value must equal the limit.",
+    "wrong_scenario_id": "factual_0011",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0021": {
+    "original_misconception": "The student incorrectly conflates uniform continuity with boundedness, treating boundedness as the defining or equivalent condition for uniform continuity.",
+    "wrong_misconception": "The student believes area changes linearly with the radius instead of quadratically.",
+    "wrong_scenario_id": "factual_0031",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0022": {
+    "original_misconception": "Assuming that a zero value of a definite integral forces the integrand to be identically zero on the interval.",
+    "wrong_misconception": "The student incorrectly believes that the square root of a sum equals the sum of the square roots.",
+    "wrong_scenario_id": "factual_0026",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "procedural_0023": {
+    "original_misconception": "Chooses \\(u\\) and \\(dv\\) in integration by parts so that the resulting integral is harder rather than simpler.",
+    "wrong_misconception": "when students struggle with forming and understanding algebraic expressions and equations.",
+    "wrong_scenario_id": "procedural_0018",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0024": {
+    "original_misconception": "Treats a non-separable first-order ODE as if variables can be separated by dividing by an expression involving both x and y.",
+    "wrong_misconception": "student made multiple errors and then fixated on the incorrect solution",
+    "wrong_scenario_id": "procedural_0015",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0025": {
+    "original_misconception": "The student reverses the order of matrix multiplication, computing BA instead of AB and treating matrix multiplication as commutative.",
+    "wrong_misconception": "when students wrongly divide fractions by splitting numerators and denominators into separate divisions, ignoring remainders",
+    "wrong_scenario_id": "procedural_0021",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0026": {
+    "original_misconception": "Applies partial fractions directly to an improper rational expression without first using polynomial long division.",
+    "wrong_misconception": "when students wrongly divide fractions by splitting numerators and denominators into separate divisions, ignoring remainders",
+    "wrong_scenario_id": "procedural_0004",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0027": {
+    "original_misconception": "Treats a ratio test limit of 1 as sufficient to conclude convergence instead of recognizing the test is inconclusive at 1.",
+    "wrong_misconception": "student made multiple errors and then fixated on the incorrect solution",
+    "wrong_scenario_id": "procedural_0015",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0028": {
+    "original_misconception": "When differentiating implicitly, the student treats y as a constant-like variable and omits the required dy/dx factor on derivatives of y-terms.",
+    "wrong_misconception": "The student calculated too many days, and didn't take into account the full information.",
+    "wrong_scenario_id": "procedural_0003",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0029": {
+    "original_misconception": "In the inductive step, the student assumes the statement for n=k+1 instead of deriving it from the hypothesis for n=k.",
+    "wrong_misconception": "when students wrongly divide fractions by splitting numerators and denominators into separate divisions, ignoring remainders",
+    "wrong_scenario_id": "procedural_0021",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0030": {
+    "original_misconception": "The student applies L'Hôpital's rule to a limit that is not of indeterminate form, treating \\(\\infty/0\\) as if it justified differentiation.",
+    "wrong_misconception": "Applies partial fractions directly to an improper rational expression without first using polynomial long division.",
+    "wrong_scenario_id": "procedural_0026",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0031": {
+    "original_misconception": "Treats sine as if it distributes over addition, using sin(a+b)=sin a+sin b instead of the angle addition formula.",
+    "wrong_misconception": "when students struggle with forming and understanding algebraic expressions and equations.",
+    "wrong_scenario_id": "procedural_0018",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0032": {
+    "original_misconception": "Incorrectly combines sums of logarithms by adding their arguments instead of multiplying them.",
+    "wrong_misconception": "The student was convinced that he had to divide the group of 60% in half, and then do it again",
+    "wrong_scenario_id": "procedural_0005",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0033": {
+    "original_misconception": "Treats the cross product as commutative, ignoring that reversing the order changes the sign.",
+    "wrong_misconception": "when students struggle to grasp the concept of independent and dependent variables",
+    "wrong_scenario_id": "procedural_0014",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "procedural_0034": {
+    "original_misconception": "Applies a Taylor/Maclaurin series identity by direct substitution at a point outside the series' interval of convergence.",
+    "wrong_misconception": "when students wrongly divide fractions by splitting numerators and denominators into separate divisions, ignoring remainders",
+    "wrong_scenario_id": "procedural_0021",
+    "type": "procedural",
+    "n_candidates": 33
+  },
+  "conceptual_0025": {
+    "original_misconception": "The student believes that because both N and R are infinite and decimal expansions can be procedurally generated, the reals must be countable, ignoring that Cantor's diagonal construction always produces a missing real.",
+    "wrong_misconception": "when students incorrectly assume two variables in an equation must represent distinct numerical values, rather than potentially representing the same expression",
+    "wrong_scenario_id": "conceptual_0014",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0026": {
+    "original_misconception": "Assumes that being continuous on an open interval is enough to guarantee boundedness, confusing it with the boundedness result for continuous functions on closed and bounded intervals.",
+    "wrong_misconception": "The student incorrectly believes that every Lebesgue measure-zero set must be countable.",
+    "wrong_scenario_id": "conceptual_0033",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0027": {
+    "original_misconception": "Believes that if the terms of a series approach zero, then the series itself must converge.",
+    "wrong_misconception": "Assumes that being continuous on an open interval is enough to guarantee boundedness, confusing it with the boundedness result for continuous functions on closed and bounded intervals.",
+    "wrong_scenario_id": "conceptual_0026",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0028": {
+    "original_misconception": "The student confuses the logical roles of injective and surjective proofs, using equal-output arguments to claim surjectivity and existence-of-preimage arguments to claim injectivity.",
+    "wrong_misconception": "The student assumes that whenever a theorem P -> Q is true, its converse Q -> P is automatically true as well.",
+    "wrong_scenario_id": "conceptual_0031",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0029": {
+    "original_misconception": "The student treats independence as if it were the same as being mutually exclusive or non-overlapping.",
+    "wrong_misconception": "when Students think longer numerals mean larger numbers, misunderstanding place value",
+    "wrong_scenario_id": "conceptual_0010",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0030": {
+    "original_misconception": "Treating symmetry of an odd function as sufficient to evaluate an improper integral across an interior singularity.",
+    "wrong_misconception": "when students struggle to represent key aspects and relationships in patterns, as seen in attempts like graphical representations missing key components",
+    "wrong_scenario_id": "conceptual_0017",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0031": {
+    "original_misconception": "The student assumes that whenever a theorem P -> Q is true, its converse Q -> P is automatically true as well.",
+    "wrong_misconception": "when students struggle to discern the three types of percent problems, relying solely on \"percent times a number equals percentage\" rule",
+    "wrong_scenario_id": "conceptual_0009",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0032": {
+    "original_misconception": "Believes that expressing vectors in a different basis can change a linearly dependent set into a linearly independent one.",
+    "wrong_misconception": "when students struggle to connect different representations of the same function (graph, equation, table).",
+    "wrong_scenario_id": "conceptual_0016",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0033": {
+    "original_misconception": "The student incorrectly believes that every Lebesgue measure-zero set must be countable.",
+    "wrong_misconception": "The student assumes that pointwise convergence on every point of the domain automatically implies uniform convergence.",
+    "wrong_scenario_id": "conceptual_0036",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0034": {
+    "original_misconception": "Treats confidence-interval width as depending only on sample size, ignoring the roles of population standard deviation and confidence level.",
+    "wrong_misconception": "when students struggle to represent key aspects and relationships in patterns, as seen in attempts like graphical representations missing key components",
+    "wrong_scenario_id": "conceptual_0017",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0035": {
+    "original_misconception": "The student incorrectly applies the superposition principle for linear differential equations to a nonlinear differential equation.",
+    "wrong_misconception": "The student confuses the logical roles of injective and surjective proofs, using equal-output arguments to claim surjectivity and existence-of-preimage arguments to claim injectivity.",
+    "wrong_scenario_id": "conceptual_0028",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "conceptual_0036": {
+    "original_misconception": "The student assumes that pointwise convergence on every point of the domain automatically implies uniform convergence.",
+    "wrong_misconception": "Assumes that being continuous on an open interval is enough to guarantee boundedness, confusing it with the boundedness result for continuous functions on closed and bounded intervals.",
+    "wrong_scenario_id": "conceptual_0026",
+    "type": "conceptual",
+    "n_candidates": 35
+  },
+  "factual_0023": {
+    "original_misconception": "The student incorrectly believes that multiplying two negative numbers always gives a negative product.",
+    "wrong_misconception": "The student believes any nonzero number raised to the 0 power equals 0 instead of 1.",
+    "wrong_scenario_id": "factual_0025",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0024": {
+    "original_misconception": "The student thinks a larger denominator makes a unit fraction larger.",
+    "wrong_misconception": "Assumes the power set of a countably infinite set is also countably infinite because its subsets can supposedly be listed.",
+    "wrong_scenario_id": "factual_0015",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0025": {
+    "original_misconception": "The student believes any nonzero number raised to the 0 power equals 0 instead of 1.",
+    "wrong_misconception": "when students mistakenly add two negative numbers, yielding a positive sum, particularly in equations with variables",
+    "wrong_scenario_id": "factual_0009",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0026": {
+    "original_misconception": "The student incorrectly believes that the square root of a sum equals the sum of the square roots.",
+    "wrong_misconception": "The student incorrectly believes that the mean and median must be equal for any data distribution.",
+    "wrong_scenario_id": "factual_0034",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0027": {
+    "original_misconception": "The student assumes a rhombus has all the same properties as a square, such as using a diagonal as if it were equal to or directly determined the side length.",
+    "wrong_misconception": "The student confuses the values of sine and cosine at key angles, treating sin(30°) and cos(60°) as 1 instead of 1/2.",
+    "wrong_scenario_id": "factual_0033",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0028": {
+    "original_misconception": "The student squares each term in a binomial but omits the 2ab middle term when expanding (a + b)^2.",
+    "wrong_misconception": "They thought that two layers had 64 books when the question said that they were always 80% extra",
+    "wrong_scenario_id": "factual_0006",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0029": {
+    "original_misconception": "The student multiplies probabilities for an 'or' event instead of adding the probabilities of mutually exclusive outcomes.",
+    "wrong_misconception": "student assumed that there are a dozen pomelos in each box.  the confusion could not be cleared",
+    "wrong_scenario_id": "factual_0004",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0030": {
+    "original_misconception": "The student incorrectly assumes every function is additive, so f(a + b) = f(a) + f(b).",
+    "wrong_misconception": "when students mistakenly add two negative numbers, yielding a positive sum, particularly in equations with variables",
+    "wrong_scenario_id": "factual_0008",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0031": {
+    "original_misconception": "The student believes area changes linearly with the radius instead of quadratically.",
+    "wrong_misconception": "when students misunderstand algebraic terms and equations involving exponents, such as numerical bases raised to algebraic powers, or algebraic expressions raised to numerical or algebraic powers.",
+    "wrong_scenario_id": "factual_0010",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0032": {
+    "original_misconception": "The student forgets to reverse the inequality sign when dividing both sides by a negative number.",
+    "wrong_misconception": "Confuses the existence of a limit at a point with continuity there, ignoring that the function value must equal the limit.",
+    "wrong_scenario_id": "factual_0011",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0033": {
+    "original_misconception": "The student confuses the values of sine and cosine at key angles, treating sin(30°) and cos(60°) as 1 instead of 1/2.",
+    "wrong_misconception": "The student squares each term in a binomial but omits the 2ab middle term when expanding (a + b)^2.",
+    "wrong_scenario_id": "factual_0028",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0034": {
+    "original_misconception": "The student incorrectly believes that the mean and median must be equal for any data distribution.",
+    "wrong_misconception": "when students confuse signs of operations and signs of numbers, inappropriately applying the rule \"two negatives make a positive\".",
+    "wrong_scenario_id": "factual_0005",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0035": {
+    "original_misconception": "The student incorrectly believes that 1 is a prime number.",
+    "wrong_misconception": "The student believes any nonzero number raised to the 0 power equals 0 instead of 1.",
+    "wrong_scenario_id": "factual_0025",
+    "type": "factual",
+    "n_candidates": 35
+  },
+  "factual_0036": {
+    "original_misconception": "The student thinks absolute value keeps a negative sign instead of always giving a nonnegative result.",
+    "wrong_misconception": "The student believes any nonzero number raised to the 0 power equals 0 instead of 1.",
+    "wrong_scenario_id": "factual_0025",
+    "type": "factual",
+    "n_candidates": 35
+  }
+}

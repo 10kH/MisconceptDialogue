@@ -1,0 +1,42 @@
+MIT License
+
+Copyright (c) 2026 Woojin Lee, Yoonkyu Woo, Jinah Kim, Hyeok-Min Gwon, Jin-Xia Huang
+Electronics and Telecommunications Research Institute (ETRI), Republic of Korea
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+THIRD-PARTY AND DERIVED ASSET TERMS
+
+The MIT terms above cover the software in this repository (`src/`, `scripts/`)
+and its documentation. Bundled scenario/config assets under `data/` are derived
+in part from third-party datasets that carry their own terms:
+
+- MathDial (Macina et al., 2023) — CC BY-SA 4.0
+- Bridge (Wang et al., 2024) — CC BY 4.0
+- BEA 2025 Shared Task data (Kochmar et al., 2025) — see the original release
+- Math Misconceptions Benchmark (Otero et al., 2025) — see the original release
+
+Portions of `data/exp3v2_scenario_bank.json` are adapted from these sources or
+generated as problem-context variants. Users redistributing or modifying the
+bundled assets must comply with the terms of the corresponding upstream
+releases, including the ShareAlike condition of CC BY-SA 4.0 where it applies.
+Dataset payloads themselves are not redistributed here; see `datasets/README.md`
+for download instructions.

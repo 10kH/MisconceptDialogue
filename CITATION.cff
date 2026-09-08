@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: "If you use this software or the MisconceptDialogue framework, please cite the paper below."
+title: "MisconceptDialogue: Evaluation Criteria Shape Measured Success in LLM Math Tutoring"
+abstract: >-
+  An automated evaluation framework that decouples the detect-diagnose-remediate
+  tutoring pipeline from the scoring lenses used to measure it, across five
+  open-weight 7B-14B LLM tutors and 5,000+ simulated-student dialogues.
+type: software
+license: MIT
+authors:
+  - given-names: Woojin
+    family-names: Lee
+    affiliation: "Electronics and Telecommunications Research Institute"
+    email: writerwoody@etri.re.kr
+  - given-names: Yoonkyu
+    family-names: Woo
+    affiliation: "Electronics and Telecommunications Research Institute"
+    email: yoon303@etri.re.kr
+  - given-names: Jinah
+    family-names: Kim
+    affiliation: "Electronics and Telecommunications Research Institute"
+    email: wlsdk3165@etri.re.kr
+  - given-names: Hyeok-Min
+    family-names: Gwon
+    affiliation: "Electronics and Telecommunications Research Institute"
+    email: hgha1194990@etri.re.kr
+  - given-names: Jin-Xia
+    family-names: Huang
+    affiliation: "Electronics and Telecommunications Research Institute"
+    email: hgh@etri.re.kr
+keywords:
+  - LLM tutoring
+  - evaluation methodology
+  - LLM-as-judge
+  - misconception diagnosis
+  - simulated students
+preferred-citation:
+  type: conference-paper
+  title: "MisconceptDialogue: Evaluation Criteria Shape Measured Success in LLM Math Tutoring"
+  authors:
+    - given-names: Woojin
+      family-names: Lee
+    - given-names: Yoonkyu
+      family-names: Woo
+    - given-names: Jinah
+      family-names: Kim
+    - given-names: Hyeok-Min
+      family-names: Gwon
+    - given-names: Jin-Xia
+      family-names: Huang
+  collection-title: "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing"
+  year: 2026
