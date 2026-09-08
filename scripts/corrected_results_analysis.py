@@ -378,6 +378,7 @@ def main():
         "icc": icc,
     }
     out_path = "results/exp4v2/corrected_analysis_summary.json"
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False, default=str)
     print(f"\nSummary saved to {out_path}")

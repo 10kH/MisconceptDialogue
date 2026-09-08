@@ -19,6 +19,7 @@ OUTPUT_DIR = Path("paper/human_eval")
 
 
 def main():
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     random.seed(SEED)
     data = json.load(open(INPUT))
 

@@ -62,6 +62,7 @@ def evaluate(prompt_template, student_response, misconception, verif_problem, co
 
 
 def main():
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     # [FIX] scenario bank에서 verification 필드를 직접 로드.
     # 이전: scenario_source(문자열)를 dict로 가정하여 빈 gold로 평가했음.
     BANK_PATH = "data/exp3v2_scenario_bank.json"

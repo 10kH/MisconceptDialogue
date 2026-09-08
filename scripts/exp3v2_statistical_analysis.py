@@ -657,6 +657,7 @@ def main():
     section("END OF ANALYSIS")
 
     # Save to file
+    OUTPUT_TXT.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_TXT, "w") as f:
         f.write(output_buf.getvalue())
     pr(f"\nResults saved to: {OUTPUT_TXT}")

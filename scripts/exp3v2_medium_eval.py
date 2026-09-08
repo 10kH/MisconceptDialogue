@@ -1123,6 +1123,7 @@ def main() -> None:
     print()
 
     # --- Save JSON ---
+    OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_JSON, "w") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     print(f"Saved comprehensive JSON to: {OUTPUT_JSON}")

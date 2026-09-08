@@ -145,6 +145,7 @@ def screen_dialogue(item, dialogue_data):
 
 
 def main():
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     safe_pool = load_safe_pool()
     print(f"Safe pool: {len(safe_pool)} dialogues")
 

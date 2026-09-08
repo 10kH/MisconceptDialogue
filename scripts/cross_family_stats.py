@@ -376,6 +376,7 @@ def main():
 
     # Save
     out_path = Path(args.output) if args.output else results_dir / "statistical_analysis.txt"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(report)
     print(f"\nSaved to {out_path}")
 
