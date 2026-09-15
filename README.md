@@ -1,9 +1,11 @@
-# MCD — MisconceptDialogue
+# MisconceptDialogue: Evaluation Criteria Shape Measured Success in LLM Math Tutoring
 
-> **MisconceptDialogue: Evaluation Criteria Shape Measured Success in LLM Math Tutoring**
-> Woojin Lee\*, Yoonkyu Woo\*, Jinah Kim, Hyeok-Min Gwon, Jin-Xia Huang†
-> Electronics and Telecommunications Research Institute (ETRI), Republic of Korea
-> EMNLP 2026. \*Main contributors, †Corresponding author (`hgh@etri.re.kr`).
+> **AACL-IJCNLP 2026** | Official Repository
+
+**Authors:** Woojin Lee\*, Yoonkyu Woo\*, Jinah Kim, Hyeok-Min Gwon, Jin-Xia Huang†  
+\* *Main contributors* | † *Corresponding author* (`hgh@etri.re.kr`)
+
+Electronics and Telecommunications Research Institute (ETRI), Republic of Korea
 
 MisconceptDialogue is an automated evaluation framework for studying whether LLM tutors can
 **detect** mathematical mistakes, **diagnose** the underlying misconception, and **remediate**
@@ -121,7 +123,7 @@ Citation metadata is in [`CITATION.cff`](CITATION.cff):
 @inproceedings{lee2026misconceptdialogue,
   title={{MisconceptDialogue}: Evaluation Criteria Shape Measured Success in {LLM} Math Tutoring},
   author={Lee, Woojin and Woo, Yoonkyu and Kim, Jinah and Gwon, Hyeok-Min and Huang, Jin-Xia},
-  booktitle={Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing},
+  booktitle={Proceedings of the 5th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 15th International Joint Conference on Natural Language Processing (AACL-IJCNLP 2026)},
   year={2026}
 }
 ```
