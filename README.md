@@ -31,7 +31,7 @@ Deliberately not tracked here:
 ## Layout
 
 ```text
-MCD/
+MisconceptDialogue/
 ├── data/                  # Scenario/config assets for Exp. 3/4
 │   ├── exp3v2_scenario_bank.json     # 106 evaluation scenarios
 │   ├── exp3v2_candidate_pool.json
