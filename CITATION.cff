@@ -7,6 +7,8 @@ abstract: >-
   open-weight 7B-14B LLM tutors and 5,000+ simulated-student dialogues.
 type: software
 license: MIT
+repository-code: "https://github.com/10kH/MisconceptDialogue"
+url: "https://github.com/10kH/MisconceptDialogue"
 authors:
   - given-names: Woojin
     family-names: Lee
@@ -14,11 +16,11 @@ authors:
     email: writerwoody@etri.re.kr
   - given-names: Yoonkyu
     family-names: Woo
-    affiliation: "Electronics and Telecommunications Research Institute"
+    affiliation: "Electronics and Telecommunications Research Institute; University of Science and Technology"
     email: yoon303@etri.re.kr
   - given-names: Jinah
     family-names: Kim
-    affiliation: "Electronics and Telecommunications Research Institute"
+    affiliation: "Electronics and Telecommunications Research Institute; University of Science and Technology"
     email: wlsdk3165@etri.re.kr
   - given-names: Hyeok-Min
     family-names: Gwon
@@ -26,7 +28,7 @@ authors:
     email: hgha1194990@etri.re.kr
   - given-names: Jin-Xia
     family-names: Huang
-    affiliation: "Electronics and Telecommunications Research Institute"
+    affiliation: "Electronics and Telecommunications Research Institute; University of Science and Technology"
     email: hgh@etri.re.kr
 keywords:
   - LLM tutoring
