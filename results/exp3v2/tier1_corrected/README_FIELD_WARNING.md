@@ -35,7 +35,7 @@ for r in tier1:
     # judge_verdict_WRONG = r["tier2_correct"]    # DO NOT USE — stale
 ```
 
-## Proof: wrong-vs-right cross-tabs (independently reproduced on this server)
+## Proof: wrong-vs-right cross-tabs
 
 Both tables below use the same `corrected_tier1` column (the strict-match verdict is
 identical either way — this field is not affected by the bug). They differ only in
@@ -48,15 +48,13 @@ which judge-verdict field is joined against. n = 2,250 in both cases.
 | **strict pass** | 881 | 67 |
 | **strict fail** | 949 | 353 |
 
-- Strict RSR = (881+67)/2250 = **42.13% → 42.1%** (matches paper Table 3 mean, `acl_latex.tex:269,907`)
-- Judge RSR = (881+949)/2250 = **81.33% → 81.3%** (matches paper Table 3 mean, `acl_latex.tex:269,849`)
+- Strict RSR = (881+67)/2250 = **42.13% → 42.1%** (matches the paper, Table 3 mean)
+- Judge RSR = (881+949)/2250 = **81.33% → 81.3%** (matches the paper, Table 3 mean)
 - McNemar discordant pairs: 949 strict-fail/judge-pass vs. 67 strict-pass/judge-fail
-- χ² = (949−67)²/(949+67) = **765.67 → 765.7** (matches paper §4.4, `acl_latex.tex:250` bootstrap-CI context)
+- χ² = (949−67)²/(949+67) = **765.67 → 765.7** (matches the paper, §4.4)
 
-Three paper-printed numbers reproduced simultaneously from a join that was not tuned to
-hit them — see `paper/rebuttal/number_trace.md` §1 for the full derivation (this is
-also where the McNemar 949-vs-67 discordant pair, used in the ARR rebuttal
-`response_hhkf.md` W3, was originally traced back to this exact join).
+Three numbers printed in the paper are reproduced simultaneously from a join that was not
+tuned to hit them; this is the join behind the McNemar 949-vs-67 discordant pair.
 
 ### Wrong — `corrected_tier1` × this file's own embedded (stale) `tier2_correct`
 
@@ -81,6 +79,5 @@ strict-vs-judge RSR comparisons from these artifacts in the future **must** join
 `tier2_corrected/tier2_recomputed.json` file's own `correct` field, never against the
 bundled copy inside this file.
 
-Cross-tabs reproduced with `conda run -n X python` directly against both files on
-2026-08-10; see `paper/rebuttal/number_trace.md` §1 and `paper/rebuttal/README.md` §3
-for the original discovery and context.
+Both cross-tabs above can be reproduced directly from the two shipped files with the
+snippet at the top of this note.
