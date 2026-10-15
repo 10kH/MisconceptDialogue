@@ -18,6 +18,12 @@ Usage:
 
 from __future__ import annotations
 
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
+
 import json
 import math
 import os
@@ -28,6 +34,9 @@ from fractions import Fraction
 from pathlib import Path
 from typing import Any, Optional
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.utils.common import EXP3V2_MODELS, latest_run_dirs  # noqa: E402
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
@@ -37,13 +46,8 @@ RESULTS_DIR = PROJECT_ROOT / "results" / "exp3v2"
 SCENARIO_BANK = PROJECT_ROOT / "data" / "exp3v2_scenario_bank.json"
 OUTPUT_JSON = RESULTS_DIR / "three_tier_analysis.json"
 
-MODEL_DIRS: dict[str, str] = {
-    "20260325_103441_qwen-2.5-7b": "Qwen-2.5-7B",
-    "20260325_103441_llama-3.1-8b": "Llama-3.1-8B",
-    "20260325_103441_mistral-7b": "Mistral-7B",
-    "20260326_010332_phi-4": "Phi-4",
-    "20260326_010332_qwen3.5-9b": "Qwen3.5-9B",
-}
+# {run_dir_name: display_name}, newest run per model under results/exp3v2/
+MODEL_DIRS: dict[str, str] = {d: EXP3V2_MODELS[m] for m, d in latest_run_dirs().items()}
 
 # Numeric comparison tolerances
 REL_TOL = 0.01   # 1% relative

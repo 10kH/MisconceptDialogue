@@ -19,6 +19,10 @@ import re
 import time
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.utils.common import latest_run_dirs  # noqa: E402
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s  %(levelname)-8s  %(message)s",
@@ -31,13 +35,8 @@ SCREEN_RESULTS = PROJECT_ROOT / "results" / "exp3v2" / "quality_screen_results.j
 SCENARIO_BANK = PROJECT_ROOT / "data" / "exp3v2_scenario_bank.json"
 OUTPUT_DIR = PROJECT_ROOT / "results" / "exp3v2" / "gpt54_screen"
 
-MODEL_DIRS = {
-    "qwen-2.5-7b": "20260325_103441_qwen-2.5-7b",
-    "mistral-7b": "20260325_103441_mistral-7b",
-    "llama-3.1-8b": "20260325_103441_llama-3.1-8b",
-    "phi-4": "20260326_010332_phi-4",
-    "qwen3.5-9b": "20260326_010332_qwen3.5-9b",
-}
+# {model_short: run_dir_name}, newest run per model under results/exp3v2/
+MODEL_DIRS = latest_run_dirs()
 
 QUALITY_PROMPT = """You are an expert evaluator of AI tutoring dialogue quality. Evaluate this math tutoring dialogue for use in a human evaluation study.
 
@@ -123,7 +122,7 @@ def load_clean_dialogues() -> list[dict]:
                 "idx_in_cell": idx,
                 "tier1_correct": item["tier1_correct"],
                 "tier2_correct": item["tier2_correct"],
-                # [FIX] 학생은 verification_problem을 풀므로 verification 필드 사용.
+                # [FIX] The student solves verification_problem, so use the verification fields.
                 "problem": scenario.get("verification_problem", ""),
                 "correct_answer": scenario.get("verification_answer", ""),
                 "misconception": scenario.get("misconception_label", ""),

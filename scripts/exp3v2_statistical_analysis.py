@@ -16,6 +16,12 @@ Usage:
     conda run -n X python scripts/exp3v2_statistical_analysis.py
 """
 
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
+
 import json
 import os
 import sys
@@ -27,6 +33,9 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.utils.common import EXP3V2_MODELS, latest_run_dirs  # noqa: E402
+
 warnings.filterwarnings("ignore")
 
 # ---------------------------------------------------------------------------
@@ -37,13 +46,8 @@ BASE = PROJECT_ROOT / "results" / "exp3v2"
 THREE_TIER_JSON = BASE / "three_tier_analysis.json"
 OUTPUT_TXT = BASE / "statistical_analysis_3tier.txt"
 
-MODEL_DIRS = {
-    "Qwen-2.5-7B": "20260325_103441_qwen-2.5-7b",
-    "Llama-3.1-8B": "20260325_103441_llama-3.1-8b",
-    "Mistral-7B": "20260325_103441_mistral-7b",
-    "Phi-4": "20260326_010332_phi-4",
-    "Qwen3.5-9B": "20260326_010332_qwen3.5-9b",
-}
+# {display_name: run_dir_name}, newest run per model under results/exp3v2/
+MODEL_DIRS = {EXP3V2_MODELS[m]: d for m, d in latest_run_dirs().items()}
 
 SEED = 42
 N_BOOTSTRAP = 10_000

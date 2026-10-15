@@ -76,6 +76,47 @@ def get_timestamp() -> str:
     return time.strftime("%Y%m%d_%H%M%S")
 
 
+def exit_on_help(doc: str | None) -> None:
+    """Print a script's module docstring and exit if `-h`/`--help` is given.
+
+    For scripts without an argparse interface: call this before any API client is
+    created or any result file is read, so `--help` works with no API key and no
+    generated results.
+    """
+    import sys
+    if any(a in ("-h", "--help") for a in sys.argv[1:]):
+        print((doc or "").strip() or "No help available.")
+        sys.exit(0)
+
+
+# Exp. 3 tutor models, keyed by the short name each run directory ends with
+# (`results/exp3v2/<YYYYMMDD_HHMMSS>_<short>/`, see src/experiments/exp3v2/run.py).
+EXP3V2_MODELS = {
+    "qwen-2.5-7b": "Qwen-2.5-7B",
+    "mistral-7b": "Mistral-7B",
+    "llama-3.1-8b": "Llama-3.1-8B",
+    "phi-4": "Phi-4",
+    "qwen3.5-9b": "Qwen3.5-9B",
+}
+
+
+def latest_run_dirs(experiment: str = "exp3v2", models=None) -> dict[str, str]:
+    """Return {model_short: run_dir_name} for the newest run directory of each model.
+
+    Run directories are named `<YYYYMMDD_HHMMSS>_<model_short>` by the experiment
+    runners, so the lexicographically largest match is the most recent run. Models
+    with no run directory yet are omitted. This replaces hard-coded timestamped
+    directory names, so analyses work on any machine's own reruns.
+    """
+    base = RESULTS_DIR / experiment
+    out: dict[str, str] = {}
+    for short in (models or EXP3V2_MODELS):
+        runs = sorted(p.name for p in base.glob(f"2*_{short}") if p.is_dir())
+        if runs:
+            out[short] = runs[-1]
+    return out
+
+
 def ensure_dir(path: str | Path) -> Path:
     """Ensure directory exists and return Path."""
     path = Path(path)

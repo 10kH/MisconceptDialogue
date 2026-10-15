@@ -9,6 +9,12 @@ Usage:
     python scripts/screen_exp3v2_for_human_eval.py
 """
 
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
+
 import json
 import re
 import sys
@@ -16,19 +22,17 @@ from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.utils.common import latest_run_dirs  # noqa: E402
+
 # ── Paths ─────────────────────────────────────────────────────────────
 
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS_DIR = ROOT / "results" / "exp3v2"
 OUTPUT_PATH = RESULTS_DIR / "quality_screen_results.json"
 
-MODEL_DIRS = {
-    "qwen-2.5-7b": "20260325_103441_qwen-2.5-7b",
-    "mistral-7b": "20260325_103441_mistral-7b",
-    "llama-3.1-8b": "20260325_103441_llama-3.1-8b",
-    "phi-4": "20260326_010332_phi-4",
-    "qwen3.5-9b": "20260326_010332_qwen3.5-9b",
-}
+# {model_short: run_dir_name}, newest run per model under results/exp3v2/
+MODEL_DIRS = latest_run_dirs()
 
 # ── Role-confusion patterns (from semantic_quality_screen.py) ─────────
 
