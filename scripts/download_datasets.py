@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """Download all datasets for MisconceptDialogue experiments."""
 
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
+
 import os
 import subprocess
 import json
@@ -20,7 +26,7 @@ def download_mathdial():
     print("[MathDial] Downloading from HuggingFace...")
     try:
         from datasets import load_dataset
-        ds = load_dataset("eth-nlped/mathdial", trust_remote_code=True)
+        ds = load_dataset("eth-nlped/mathdial")
         ds.save_to_disk(str(dest / "hf_cache"))
         (dest / "done.marker").touch()
         print(f"[MathDial] Done. Splits: {list(ds.keys())}, sizes: {[len(ds[s]) for s in ds.keys()]}")
@@ -66,43 +72,28 @@ def download_bea2025():
 
 
 def download_eedi():
-    """Download EEDI misconception data."""
+    """Prepare the optional EEDI misconception data (manual download).
+
+    EEDI is optional: only the Exp. 2 misconception taxonomy can use it, and it falls back
+    to the Math Misconceptions Benchmark when EEDI is absent. The data is distributed only
+    through Kaggle under the competition's terms, so it cannot be fetched automatically.
+    """
     dest = BASE_DIR / "eedi"
-    if (dest / "done.marker").exists():
-        print("[EEDI] Already downloaded, skipping.")
+    if (dest / "misconception_mapping.csv").exists():
+        print("[EEDI] Found misconception_mapping.csv, skipping.")
         return
     dest.mkdir(parents=True, exist_ok=True)
-    print("[EEDI] Note: Full EEDI Kaggle dataset requires Kaggle credentials.")
-    print("[EEDI] Downloading publicly available misconception taxonomy...")
-    # Download the NeurIPS 2020 EEDI dataset (public)
-    try:
-        from datasets import load_dataset
-        ds = load_dataset("marksverdhei/eedi-mining-misconceptions-in-mathematics",
-                          trust_remote_code=True)
-        ds.save_to_disk(str(dest / "hf_cache"))
-        (dest / "done.marker").touch()
-        print(f"[EEDI] Done. Splits: {list(ds.keys())}")
-    except Exception as e:
-        print(f"[EEDI] HuggingFace download failed: {e}")
-        print("[EEDI] Trying alternative: EEDI NeurIPS 2020 public data...")
-        try:
-            repo_dir = dest / "neurips2020"
-            if not repo_dir.exists():
-                subprocess.run(
-                    ["git", "clone", "--depth", "1",
-                     "https://github.com/haradai/eedi-dataset.git", str(repo_dir)],
-                    check=True, capture_output=True, text=True
-                )
-            (dest / "done.marker").touch()
-            print("[EEDI] NeurIPS 2020 data downloaded.")
-        except Exception as e2:
-            print(f"[EEDI] Alternative also failed: {e2}")
-            print("[EEDI] Will need manual download. Creating placeholder.")
-            (dest / "MANUAL_DOWNLOAD_NEEDED.txt").write_text(
-                "Download EEDI data from:\n"
-                "- Kaggle: https://www.kaggle.com/competitions/eedi-mining-misconceptions-in-mathematics\n"
-                "- NeurIPS 2020: https://arxiv.org/abs/2007.12061\n"
-            )
+    note = (
+        "EEDI is optional (used only by the Exp. 2 taxonomy; it falls back to the Math\n"
+        "Misconceptions Benchmark when absent).\n\n"
+        "To use it, accept the competition rules and download the data from Kaggle:\n"
+        "  https://www.kaggle.com/competitions/eedi-mining-misconceptions-in-mathematics/data\n"
+        "then place train.csv, test.csv and misconception_mapping.csv in this directory\n"
+        f"({dest}).\n"
+    )
+    (dest / "MANUAL_DOWNLOAD_NEEDED.txt").write_text(note)
+    print("[EEDI] Optional, manual download only (Kaggle). Instructions written to "
+          f"{dest / 'MANUAL_DOWNLOAD_NEEDED.txt'}")
 
 
 def download_mrbench():

@@ -25,9 +25,8 @@ MathDial (HuggingFace DatasetDict at datasets/mathdial/hf_cache/):
             self-typical-confusion, self-typical-interactions, conversation
   conversation: pipe-delimited "Teacher: (type)text|EOM|Student: name text|EOM|..."
 
-EEDI (not yet downloaded - requires manual Kaggle download):
-  MANUAL_DOWNLOAD_NEEDED.txt present at datasets/eedi/
-  Expected HF cache: datasets/eedi/hf_cache/
+EEDI (optional, manual Kaggle download; see scripts/download_datasets.py):
+  Kaggle CSVs in datasets/eedi/: train.csv, test.csv, misconception_mapping.csv
 
 Misconceptions Benchmark (JSON list, 220 items, 55 unique misconception IDs):
   keys: Misconception, Misconception ID, Topic, Example Number, Question,
@@ -386,47 +385,41 @@ def load_bea2025(split: str = "dev") -> list[TutoringInstance]:
 
 
 def load_eedi() -> list[dict]:
-    """Load EEDI misconception data from HuggingFace datasets disk cache.
+    """Load the optional EEDI Kaggle data as raw CSV rows.
 
-    EEDI contains MCQ-based math questions with distractor-to-misconception
-    mappings.  It requires manual download from Kaggle:
-      https://www.kaggle.com/competitions/eedi-mining-misconceptions-in-mathematics
+    EEDI contains MCQ-based math questions with distractor-to-misconception mappings.
+    It is distributed only through Kaggle, so it must be downloaded manually:
+      https://www.kaggle.com/competitions/eedi-mining-misconceptions-in-mathematics/data
 
-    Expected location: datasets/eedi/hf_cache/
+    Expected location: datasets/eedi/{train,test}.csv (the Exp. 2 pipeline also reads
+    datasets/eedi/misconception_mapping.csv).
 
     Returns:
-        List of dicts with question and misconception mapping info, or an
-        empty list with a warning if the dataset has not been downloaded.
+        List of row dicts tagged with "split" and "dataset", or an empty list with a
+        warning if the CSVs are absent.
 
     Note:
         Returns dicts rather than TutoringInstance because EEDI is MCQ-based
         and does not contain dialogue/conversation data.
     """
-    cache_dir = DATASETS_DIR / "eedi" / "hf_cache"
-    if not cache_dir.exists():
-        logger.warning(
-            "EEDI dataset not found at %s. "
-            "Download manually from: "
-            "https://www.kaggle.com/competitions/eedi-mining-misconceptions-in-mathematics "
-            "then place the extracted HuggingFace DatasetDict under datasets/eedi/hf_cache/",
-            cache_dir,
-        )
-        return []
+    import csv
 
-    try:
-        from datasets import load_from_disk  # type: ignore
-    except ImportError as exc:
-        raise ImportError(
-            "The 'datasets' package is required to load EEDI. "
-            "Install with: pip install datasets"
-        ) from exc
-
-    dataset_dict = load_from_disk(str(cache_dir))
+    eedi_dir = DATASETS_DIR / "eedi"
     results: list[dict] = []
-    for split_name in dataset_dict:
-        for row in dataset_dict[split_name]:
-            results.append(dict(row) | {"split": split_name, "dataset": "eedi"})
-
+    for split_name in ("train", "test"):
+        path = eedi_dir / f"{split_name}.csv"
+        if not path.exists():
+            continue
+        with open(path, newline="", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                results.append(dict(row) | {"split": split_name, "dataset": "eedi"})
+    if not results:
+        logger.warning(
+            "EEDI not found under %s. It is optional; download train.csv/test.csv from "
+            "https://www.kaggle.com/competitions/eedi-mining-misconceptions-in-mathematics/data",
+            eedi_dir,
+        )
+        return results
     logger.info("Loaded %d EEDI items", len(results))
     return results
 
