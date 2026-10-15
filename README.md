@@ -18,7 +18,7 @@ LLM-as-judge evaluation operationalize different notions of success on the same 
 
 ## Scope of this repository
 
-This is a **private** repository holding the runnable code and the lightweight scenario/config
+This is a **public** repository holding the runnable code and the lightweight scenario/config
 assets. The published paper makes no artifact-availability claim and cites no code URL.
 
 Deliberately not tracked here:
