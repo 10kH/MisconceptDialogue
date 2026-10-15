@@ -1,10 +1,16 @@
 """
-Tier1 재계산 스크립트: verification_answer를 올바른 gold로 사용하여
-기존 2,250 Exp3v2 대화 + Exp4v2 전 condition의 Tier1 (regex) 결과를 재계산한다.
+Tier-1 recomputation: using verification_answer as the correct gold, recompute the Tier-1
+(regex) results for the 2,250 Exp3v2 dialogues and every Exp4v2 condition.
 
-배경: 이전 run.py에서 scenario.correct_answer(원문 문제 정답)를 gold로 넘겨
+Background: the earlier run.py passed scenario.correct_answer (the original problem's answer) as gold;
 102/106 scenarios used the original-problem answer instead of the verification gold in the legacy Tier1 run.
 """
+
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
 
 import json
 import glob
@@ -14,7 +20,7 @@ from collections import defaultdict
 
 
 def evaluate_tier1_heuristic(student_response: str, correct_answer: str) -> bool:
-    """Word-boundary regex 매칭 — evaluator.py의 Tier1과 동일한 로직."""
+    """Word-boundary regex match, the same logic as Tier-1 in evaluator.py."""
     response_lower = student_response.lower().strip()
     answer_lower = correct_answer.lower().strip()
     if not answer_lower:
@@ -24,13 +30,13 @@ def evaluate_tier1_heuristic(student_response: str, correct_answer: str) -> bool
 
 
 def load_scenario_bank():
-    """시나리오 뱅크 로드: id → {verification_answer, correct_answer, ...}"""
+    """Load the scenario bank: id -> {verification_answer, correct_answer, ...}"""
     with open("data/exp3v2_scenario_bank.json") as f:
         return {s["id"]: s for s in json.load(f)}
 
 
 def recompute_exp3v2(bank):
-    """Exp3v2 전체 2,250건 재계산."""
+    """Recompute all 2,250 Exp3v2 dialogues."""
     print("=" * 60)
     print("EXP3V2 TIER1 RECOMPUTATION")
     print("=" * 60)
@@ -48,9 +54,9 @@ def recompute_exp3v2(bank):
                 sc = bank.get(sid, {})
                 student = r.get("verification_answer", "")
 
-                # 원래 gold (버그): correct_answer
+                # Original gold (bug): correct_answer
                 original_gold = str(sc.get("correct_answer", ""))
-                # 수정 gold: verification_answer
+                # Corrected gold: verification_answer
                 correct_gold = str(sc.get("verification_answer", ""))
 
                 original_t1 = evaluate_tier1_heuristic(student, original_gold)
@@ -148,7 +154,7 @@ def recompute_exp3v2(bank):
 
 
 def recompute_exp4v2(bank):
-    """Exp4v2 전 condition 재계산."""
+    """Recompute every Exp4v2 condition."""
     print("\n" + "=" * 60)
     print("EXP4V2 TIER1 RECOMPUTATION")
     print("=" * 60)

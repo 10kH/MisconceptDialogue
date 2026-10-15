@@ -1,15 +1,21 @@
 """
-Tier2 재채점 스크립트: verification_answer/verification_problem을 올바른 gold로 사용하여
-GPT-5-mini judge에게 Exp3v2 2,250건 + Exp4v2 전 condition을 재채점한다.
+Tier-2 rescoring: using verification_answer/verification_problem as the correct gold, rescore
+the 2,250 Exp3v2 dialogues and every Exp4v2 condition with the GPT-5-mini judge.
 
-배경: 이전 run.py에서 scenario.correct_answer(원문 정답)를 judge 프롬프트에 넘겨
-잘못된 문맥으로 채점했음. 이 스크립트는 올바른 verification 필드로 재채점한다.
+Background: the earlier run.py passed scenario.correct_answer (the original answer) to the judge
+prompt, so dialogues were scored in the wrong context. This script rescores with the verification fields.
 
-사용법:
-  python scripts/rescore_tier2_corrected.py             # Exp3v2만
-  python scripts/rescore_tier2_corrected.py --exp4       # Exp4v2만
-  python scripts/rescore_tier2_corrected.py --all        # 둘 다
+Usage:
+  python scripts/rescore_tier2_corrected.py             # Exp3v2 only
+  python scripts/rescore_tier2_corrected.py --exp4       # Exp4v2 only
+  python scripts/rescore_tier2_corrected.py --all        # both
 """
+
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
 
 import json
 import glob
@@ -23,7 +29,7 @@ from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI()
 
-# evaluator.py와 동일한 judge 프롬프트 (변경 없음)
+# Same judge prompt as evaluator.py (unchanged)
 JUDGE_SYSTEM_PROMPT = """You are an expert mathematics education evaluator. Your job is to assess whether a student has demonstrated CORRECT UNDERSTANDING of a mathematical concept after a remediation session.
 
 IMPORTANT DISTINCTION:
@@ -41,12 +47,12 @@ EVALUATION RUBRIC:
 
 Respond ONLY with a JSON object. No markdown, no explanation outside the JSON."""
 
-JUDGE_MODEL = "gpt-5-mini"  # 원래 실험과 동일한 judge 모델
-CHECKPOINT_INTERVAL = 10  # gpt-5-mini 호출이 느려 자주 저장
+JUDGE_MODEL = "gpt-5-mini"  # same judge model as the original experiment
+CHECKPOINT_INTERVAL = 10  # gpt-5-mini calls are slow, so checkpoint often
 
 
 def build_judge_prompt(student_response, correct_answer, problem, misconception):
-    """evaluator.py의 _build_judge_prompt와 동일."""
+    """Same as _build_judge_prompt in evaluator.py."""
     return f"""Evaluate this student's response after a remediation session:
 
 ORIGINAL PROBLEM: {problem}
@@ -59,20 +65,20 @@ Assess whether the student demonstrates correct understanding. Respond with JSON
 
 
 def call_judge(student_response, correct_answer, problem, misconception):
-    """GPT-5-mini judge 호출. 최대 3회 재시도."""
+    """Call the GPT-5-mini judge, retrying up to 3 times."""
     prompt = build_judge_prompt(student_response, correct_answer, problem, misconception)
     backoff = [1, 2, 4]
 
     for attempt in range(3):
         try:
-            # gpt-5-mini는 temperature=0.0 미지원 → 생략 (기본값 1.0 사용)
+            # gpt-5-mini does not support temperature=0.0 -> omit it (default 1.0)
             r = client.chat.completions.create(
                 model=JUDGE_MODEL,
                 messages=[
                     {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
                 ],
-                max_completion_tokens=8192,  # gpt-5-mini는 reasoning token 소모 → 충분히 크게
+                max_completion_tokens=8192,  # gpt-5-mini spends reasoning tokens -> keep this large
                 response_format={"type": "json_object"},
             )
             result = json.loads(r.choices[0].message.content)
@@ -102,7 +108,7 @@ def load_scenario_bank():
 
 
 def rescore_exp3v2(bank):
-    """Exp3v2 2,250건 재채점."""
+    """Rescore the 2,250 Exp3v2 dialogues."""
     print("=" * 60)
     print("EXP3V2 TIER2 RE-SCORING (GPT-5-mini)")
     print("=" * 60)
@@ -111,14 +117,14 @@ def rescore_exp3v2(bank):
     os.makedirs(out_dir, exist_ok=True)
     checkpoint_path = os.path.join(out_dir, "checkpoint.json")
 
-    # 체크포인트 로드
+    # Load the checkpoint
     completed = {}
     if os.path.exists(checkpoint_path):
         with open(checkpoint_path) as f:
             completed = json.load(f)
         print(f"Checkpoint loaded: {len(completed)} already done")
 
-    # 전체 대화 수집
+    # Collect every dialogue
     all_items = []
     for d in sorted(glob.glob("results/exp3v2/2026*")):
         if not os.path.isdir(d):
@@ -147,7 +153,7 @@ def rescore_exp3v2(bank):
         sid = item["scenario_id"]
         sc = bank.get(sid, {})
 
-        # [핵심] verification 필드 사용 (수정된 gold)
+        # [Key] use the verification fields (corrected gold)
         correct_answer = str(sc.get("verification_answer", ""))
         problem = str(sc.get("verification_problem", ""))
         misconception = str(sc.get("misconception_label", ""))
@@ -176,7 +182,7 @@ def rescore_exp3v2(bank):
         result["original_tier2"] = item["original_tier2"]
         completed[item["key"]] = result
 
-        # 체크포인트 저장
+        # Save the checkpoint
         if (len(completed)) % CHECKPOINT_INTERVAL == 0:
             with open(checkpoint_path, "w") as f:
                 json.dump(completed, f, ensure_ascii=False)
@@ -188,11 +194,11 @@ def rescore_exp3v2(bank):
 
         time.sleep(0.05)  # rate limit
 
-    # 최종 저장
+    # Final save
     with open(checkpoint_path, "w") as f:
         json.dump(completed, f, ensure_ascii=False)
 
-    # 결과 요약
+    # Summarize results
     results_list = list(completed.values())
     n = len(results_list)
     errors = sum(1 for r in results_list if r.get("judge_error"))
@@ -226,7 +232,7 @@ def rescore_exp3v2(bank):
         tc = sum(1 for r in tr if r["correct"])
         print(f"  {t:<12} Orig={to_/tn*100:.1f}% Corr={tc/tn*100:.1f}% Δ={((tc-to_)/tn*100):+.1f}pp (n={tn})")
 
-    # 최종 결과 파일
+    # Final results file
     final_path = os.path.join(out_dir, "tier2_recomputed.json")
     with open(final_path, "w") as f:
         json.dump(results_list, f, indent=2, ensure_ascii=False)
@@ -236,7 +242,7 @@ def rescore_exp3v2(bank):
 
 
 def rescore_exp4v2(bank):
-    """Exp4v2 전 condition 재채점."""
+    """Rescore every Exp4v2 condition."""
     print("\n" + "=" * 60)
     print("EXP4V2 TIER2 RE-SCORING (GPT-5-mini)")
     print("=" * 60)
@@ -245,14 +251,14 @@ def rescore_exp4v2(bank):
     os.makedirs(out_dir, exist_ok=True)
     checkpoint_path = os.path.join(out_dir, "checkpoint.json")
 
-    # 체크포인트 로드
+    # Load the checkpoint
     completed = {}
     if os.path.exists(checkpoint_path):
         with open(checkpoint_path) as f:
             completed = json.load(f)
         print(f"Checkpoint loaded: {len(completed)} already done")
 
-    # 전체 결과 수집
+    # Collect every result
     all_items = []
     for d in sorted(glob.glob("results/exp4v2/2026*")):
         if not os.path.isdir(d):
@@ -319,7 +325,7 @@ def rescore_exp4v2(bank):
 
         time.sleep(0.05)
 
-    # 최종 저장
+    # Final save
     with open(checkpoint_path, "w") as f:
         json.dump(completed, f, ensure_ascii=False)
 

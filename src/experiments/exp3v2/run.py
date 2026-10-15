@@ -270,10 +270,10 @@ def run_remediation_dialogue(
         verification_answer = ""
 
     # --- Evaluate with two-tier system ---
-    # [FIX] 학생은 verification_problem을 풀고 있으므로, 평가 시에도
-    # verification_answer/verification_problem을 gold로 사용해야 한다.
-    # 이전에는 원문 문제의 정답(scenario.correct_answer)을 넘겨
-    # 102/106 시나리오에서 잘못된 gold로 채점하는 버그가 있었다.
+    # [FIX] The student is solving verification_problem, so scoring must also
+    # use verification_answer/verification_problem as gold.
+    # Previously the original problem's answer (scenario.correct_answer) was passed,
+    # a bug that scored 102/106 scenarios against the wrong gold.
     evaluation = evaluate_remediation(
         student_response=verification_answer,
         correct_answer=scenario.verification_answer,

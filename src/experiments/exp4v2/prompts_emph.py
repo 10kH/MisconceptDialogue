@@ -1,6 +1,6 @@
-"""Diagnosis-emphasis prompt variant for the camera-ready robustness check.
+"""Diagnosis-emphasis prompt variant for the robustness check.
 
-Rationale (AACL-IJCNLP rebuttal commitment):
+Rationale:
     The wrong-diagnosis control (condition_C_wrong) found RSR 80.8% (wrong) vs
     76.6% (gold), i.e. little evidence that tutors condition on the diagnosis
     label. This module tests whether that NULL is sensitive to a STRONGER

@@ -4,6 +4,10 @@ import sys
 
 if __name__ == "__main__":
     # First arg is GPU list, rest are forwarded to the module
+    if any(a in ("-h", "--help") for a in sys.argv[1:2]):
+        print(__doc__.strip() if __doc__ else "usage: run_on_gpus.py <gpu_ids> <module> [args...]")
+        print("  e.g. python scripts/run_on_gpus.py 5,7 src.experiments.exp1_detection.run --model foo")
+        sys.exit(0)
     if len(sys.argv) < 3:
         print("Usage: python scripts/run_on_gpus.py GPU_IDS MODULE [ARGS...]")
         print("  e.g. python scripts/run_on_gpus.py 5,7 src.experiments.exp1_detection.run --model foo")

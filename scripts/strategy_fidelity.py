@@ -9,6 +9,12 @@ ratios, and runs a chi-squared test to assess whether strategies are
 linguistically distinguishable.
 """
 
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
+
 import json
 import re
 import glob

@@ -11,6 +11,12 @@ Checks:
 Usage: python scripts/corrected_results_analysis.py
 """
 
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
+
 import json
 import os
 import sys
@@ -22,7 +28,7 @@ from collections import defaultdict
 # ============================================================
 
 def load_tier1_corrected(exp):
-    """tier1_corrected 결과 로드."""
+    """Load the tier1_corrected results."""
     path = f"results/{exp}/tier1_corrected/tier1_recomputed.json"
     if not os.path.exists(path):
         print(f"WARNING: {path} not found")
@@ -32,7 +38,7 @@ def load_tier1_corrected(exp):
 
 
 def load_tier2_corrected(exp):
-    """tier2_corrected 결과 로드."""
+    """Load the tier2_corrected results."""
     path = f"results/{exp}/tier2_corrected/tier2_recomputed.json"
     if not os.path.exists(path):
         # checkpoint fallback
@@ -48,7 +54,7 @@ def load_tier2_corrected(exp):
 
 
 def load_medium_results():
-    """3-tier analysis에서 Medium 결과 로드."""
+    """Load the Medium (numeric-extraction) results from the 3-tier analysis."""
     path = "results/exp3v2/three_tier_analysis.json"
     if not os.path.exists(path):
         print(f"WARNING: {path} not found")
@@ -230,7 +236,7 @@ def analyze_exp4v2():
 # ============================================================
 
 def run_glmm(t2_data):
-    """GLMM: condition이 Tier2 RSR에 미치는 효과 (mixed-effects logistic regression)."""
+    """GLMM: effect of condition on Tier-2 RSR (mixed-effects logistic regression)."""
     print("\n--- GLMM (Corrected Tier2) ---")
     try:
         import statsmodels.api as sm

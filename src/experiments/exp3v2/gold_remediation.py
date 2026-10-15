@@ -175,8 +175,8 @@ def run_gold_dialogue(
         verification_answer = ""
 
     # Evaluate
-    # [FIX] 학생은 verification_problem을 풀므로 verification_answer를 gold로 사용.
-    # 이전: scenario.correct_answer(원문 정답) → 잘못된 gold로 채점.
+    # [FIX] The student solves verification_problem, so use verification_answer as gold.
+    # Previously: scenario.correct_answer (the original answer) -> scored against the wrong gold.
     evaluation = evaluate_remediation(
         student_response=verification_answer,
         correct_answer=scenario.verification_answer,

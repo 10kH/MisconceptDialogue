@@ -3,6 +3,12 @@ Within-construct judge sensitivity experiment:
 Apply strict and lenient LLM-as-judge prompts to the same 2,250 Exp3v2 dialogues.
 Standard (Tier 2) already exists. This adds strict + lenient for comparison.
 """
+
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
 import json, os, glob, time, sys
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -63,8 +69,8 @@ def evaluate(prompt_template, student_response, misconception, verif_problem, co
 
 def main():
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
-    # [FIX] scenario bank에서 verification 필드를 직접 로드.
-    # 이전: scenario_source(문자열)를 dict로 가정하여 빈 gold로 평가했음.
+    # [FIX] Load the verification fields directly from the scenario bank.
+    # Previously: scenario_source (a string) was treated as a dict, so the gold was empty.
     BANK_PATH = "data/exp3v2_scenario_bank.json"
     with open(BANK_PATH) as f:
         scenario_bank = {s["id"]: s for s in json.load(f)}
@@ -101,8 +107,8 @@ def main():
         if key in completed:
             continue
 
-        # [FIX] scenario bank에서 verification 필드를 직접 조회.
-        # 이전: scenario_source(문자열 "gpt5.4_generated" 등)를 dict로 가정 → 빈 gold.
+        # [FIX] Look up the verification fields directly in the scenario bank.
+        # Previously: scenario_source (a string such as "gpt5.4_generated") was treated as a dict -> empty gold.
         sid = dial.get('scenario_id', '')
         sc = scenario_bank.get(sid, {})
         misconception = sc.get('misconception_label', str(sid))

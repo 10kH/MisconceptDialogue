@@ -16,6 +16,12 @@ That file's own `original_tier2` field is confirmed to reproduce the raw
 Usage: conda run -n X python scripts/exp4v2_tost_corrected.py
 """
 
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
+
 import json
 import os
 from collections import defaultdict

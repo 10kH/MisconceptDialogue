@@ -1,15 +1,15 @@
 """
 Wrong-diagnosis control experiment (C_wrong condition).
-Tutor에게는 틀린 diagnosis를, judge에게는 원래 diagnosis를 제공하여
-pipeline diagnosis 정보가 실제로 활용되는지 검증.
+Give the tutor a wrong diagnosis and the judge the original diagnosis, to test
+whether the pipeline's diagnosis information is actually used.
 
-핵심 설계:
-- tutor prompt: wrong misconception (의도적 오진)
-- judge evaluation: original misconception (정확한 평가 유지)
-- verification problem/answer: original (변경 없음)
-- student profile: C2와 동일 (기존 결과에서 로드)
+Key design:
+- tutor prompt: wrong misconception (deliberate misdiagnosis)
+- judge evaluation: original misconception (scoring stays correct)
+- verification problem/answer: original (unchanged)
+- student profile: same as C2 (loaded from the existing results)
 
-사용법:
+Usage:
   python scripts/run_wrong_diagnosis_control.py --dry-run
   python scripts/run_wrong_diagnosis_control.py --pilot --model qwen-2.5-7b
   python scripts/run_wrong_diagnosis_control.py --model qwen-2.5-7b
@@ -85,10 +85,10 @@ def append_checkpoint(result):
 def run_one(tutor_model, student_model, judge_model, scenario_data,
             wrong_misc, original_misc, profile_kc, judge_cache):
     """
-    C_wrong 대화 1건 실행.
-    tutor prompt에만 wrong_misc를 넣고, evaluate_remediation에는 original_misc를 넣는다.
-    run_pipeline_dialogue()를 재사용하지 않고 대화 루프를 직접 구현하여
-    tutor/judge misconception을 분리한다.
+    Run one C_wrong dialogue.
+    Only the tutor prompt gets wrong_misc; evaluate_remediation gets original_misc.
+    The dialogue loop is implemented here instead of reusing run_pipeline_dialogue(),
+    so the tutor and judge misconceptions stay separate.
     """
     from src.evaluation.simulated_student import (
         StudentProfile, build_student_system_prompt,
@@ -101,7 +101,7 @@ def run_one(tutor_model, student_model, judge_model, scenario_data,
     from src.experiments.exp3v2.run import _check_answer_revealed, _adjust_tokens
     from src.experiments.exp3v2.scenario_bank import Scenario
 
-    # Scenario 객체 (원본 — verification/evaluation용)
+    # Scenario object (original, used for verification/evaluation)
     sc = Scenario(
         id=scenario_data["id"],
         problem=scenario_data["problem"],
@@ -144,7 +144,7 @@ def run_one(tutor_model, student_model, judge_model, scenario_data,
     conversation_history.append({"role": "user", "content": initial_msg})
     student_responses.append(initial_msg)
 
-    # 기존 Exp4와 동일한 turn 구조: 5 tutor turns, 4 student turns
+    # Same turn structure as Exp4: 5 tutor turns, 4 student turns
     max_turns = 5
     for turn in range(max_turns):
         # --- Tutor turn (WRONG misconception in prompt) ---
@@ -253,8 +253,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--pilot", action="store_true", help="5 scenarios only")
-    parser.add_argument("--model", type=str, help="단일 모델")
-    parser.add_argument("--all", action="store_true", help="전체 5 모델")
+    parser.add_argument("--model", type=str, help="single model")
+    parser.add_argument("--all", action="store_true", help="all 5 models")
     parser.add_argument("--judge-model", default="gpt-5-mini")
     parser.add_argument("--student-model", default="gpt-5-mini")
     args = parser.parse_args()

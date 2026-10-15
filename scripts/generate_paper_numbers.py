@@ -1,10 +1,16 @@
 """
-재채점 완료 후 논문에 삽입할 모든 수치를 생성하는 스크립트.
-Tier1 corrected + Tier2 corrected 결과를 읽어 before/after 비교와
-논문에 필요한 모든 수치를 출력한다.
+Generate every number reported in the paper from the corrected scoring.
+Reads the Tier-1 corrected and Tier-2 corrected results and prints the before/after
+comparison together with all numbers needed for the paper.
 
-사용법: python scripts/generate_paper_numbers.py
+Usage: python scripts/generate_paper_numbers.py
 """
+
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+from src.utils.common import exit_on_help  # noqa: E402
+exit_on_help(__doc__)
 import json, os
 from collections import defaultdict
 

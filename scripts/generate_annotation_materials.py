@@ -1,18 +1,32 @@
 #!/usr/bin/env python3
-"""Generate annotation materials from extracted human eval samples.
+"""Generate annotation materials from the extracted human-evaluation samples.
 
-Outputs:
-  1. paper/human_eval/annotation_form.tsv — Response form (one row per dialogue)
-  2. paper/human_eval/samples/ — Individual sample files for annotators to read
-  3. paper/human_eval/annotation_form_template.tsv — Empty form per annotator
+Input: the samples file written by scripts/gpt54_quality_screen.py
+(default paper/human_eval_v2/annotation_samples.json).
+
+Outputs (under the output directory, default paper/human_eval_v2/):
+  1. annotation_form.tsv — response form (one row per dialogue)
+  2. samples/ — individual sample files for annotators to read
+  3. annotation_form_template.tsv — empty form per annotator
+
+Usage:
+  python scripts/generate_annotation_materials.py [--input PATH] [--output-dir DIR]
 """
+
 import json
 import re
 import csv
 from pathlib import Path
 
-INPUT = Path("paper/human_eval/exp3_annotation_samples.json")
-OUTPUT_DIR = Path("paper/human_eval")
+import argparse
+
+_ap = argparse.ArgumentParser(description="Generate human-evaluation annotation materials.")
+_ap.add_argument("--input", default="paper/human_eval_v2/annotation_samples.json",
+                 help="samples file written by scripts/gpt54_quality_screen.py")
+_ap.add_argument("--output-dir", default="paper/human_eval_v2", help="where to write the materials")
+_args = _ap.parse_args()
+INPUT = Path(_args.input)
+OUTPUT_DIR = Path(_args.output_dir)
 SAMPLES_DIR = OUTPUT_DIR / "samples"
 
 
@@ -171,11 +185,11 @@ def main():
     print(f"  Samples: {n}")
     print(f"  Judgments needed per annotator: {n * 2} (A + B for each sample)")
     print(f"  Files:")
-    print(f"    Guidelines:    paper/human_eval/annotation_guidelines.md")
-    print(f"    Sample files:  paper/human_eval/samples/S001.txt ... S{n:03d}.txt")
-    print(f"    Combined doc:  paper/human_eval/all_samples.txt")
-    print(f"    Response form: paper/human_eval/annotation_form.tsv")
-    print(f"    Answer key:    paper/human_eval/answer_key.tsv (DO NOT share)")
+    print(f"    Guidelines:    {OUTPUT_DIR}/annotation_guidelines.md")
+    print(f"    Sample files:  {SAMPLES_DIR}/S001.txt ... S{n:03d}.txt")
+    print(f"    Combined doc:  {OUTPUT_DIR}/all_samples.txt")
+    print(f"    Response form: {OUTPUT_DIR}/annotation_form.tsv")
+    print(f"    Answer key:    {OUTPUT_DIR}/answer_key.tsv (DO NOT share)")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-"""Diagnosis-emphasis robustness variant (camera-ready).
+"""Diagnosis-emphasis robustness variant.
 
 Re-runs the wrong-vs-gold diagnosis contrast under a STRONGER diagnosis-emphasis
 tutor prompt (diagnosis-first ordering + explicit "address this misconception
