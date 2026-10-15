@@ -4,14 +4,14 @@ This guide explains how to inspect the MisconceptDialogue code and reproduce the
 
 ## What this repository tracks
 
-This repository holds the code, scripts, documentation, and the lightweight scenario/config JSON under `data/`. It intentionally does not track:
+This repository holds the code, scripts, documentation, the scenario/config JSON under `data/`, and the final scoring artifacts behind the paper's numbers under `results/` (listed in `results/README.md`). It does not track:
 
 - downloaded dataset payloads under `datasets/`
-- generated experiment outputs under `results/`
-- paper sources, figures, and review/human-evaluation materials
-- internal notes, archives, caches, secrets, logs, and model weights
+- raw per-dialogue run directories and the outputs of other experiments under `results/`
+- paper sources and figures
+- caches, secrets, logs, and model weights
 
-Therefore, commands that verify paper numbers from precomputed outputs require result artifacts you generate yourself. Full reruns require GPUs and API access.
+So the paper's numbers can be verified from the shipped artifacts in minutes on a CPU (Track A), and every experiment can also be rerun from scratch (Track B), which requires GPUs and API access.
 
 ## Prerequisites
 
@@ -47,29 +47,30 @@ python scripts/download_datasets.py
 
 Some sources may require manual access or separate credentials. See `datasets/README.md`.
 
-## Track A: Verify paper numbers from result artifacts
+## Track A: Verify paper numbers from the shipped artifacts
 
-This track requires precomputed outputs under `results/`, which are not tracked in this repository. Once you have generated the result artifacts, place them under the paths documented in `results/README.md`, then run:
+No datasets, GPUs, or API key are needed: the final scoring artifacts are in `results/`. Run:
 
 ```bash
-# 1. Verify Table 3 / Table 4 numbers
+# 1. Table 3 / Table 4 numbers
 python scripts/generate_paper_numbers.py
 
-# 2. Verify GLMM / ICC statistics
+# 2. GLMM / ICC statistics
 python scripts/corrected_results_analysis.py
 
-# 3. Verify Tier-1 final-score audit
-#    NOTE: unlike the two above, this one recomputes from the raw per-dialogue
-#    dumps, so it needs results/exp3v2/2026*/ and results/exp4v2/2026*/ as well
-#    as the *_corrected/ summaries.
-python scripts/recompute_tier1_corrected.py
+# 3. Equivalence testing (TOST)
+python scripts/exp4v2_tost_corrected.py
 ```
 
-Expected outputs with the paper-authoritative result artifacts:
+Expected output:
 
-- `generate_paper_numbers.py`: Table 3 Mean = 42.1 / 45.8 / 81.3; Table 4 condition range 76.6--81.3%
-- `corrected_results_analysis.py`: GLMM p=0.263, ICC(scenario)=0.206
-- `recompute_tier1_corrected.py`: Tier-1 final RSR = 42.1%, MATCH group invariance PASS
+- `generate_paper_numbers.py`: Table 3 Mean = 42.1 / 45.8 / 81.3 (strict / numeric / judge), a 39.2 pp gap; Table 4 condition range 76.6--81.3%
+- `corrected_results_analysis.py`: GLMM condition effect χ² = 6.47, p = 0.263; ICC(scenario) = 0.206
+- `exp4v2_tost_corrected.py`: at δ = 10 pp all 15 condition pairs are equivalent; at δ = 5 pp only 3 are
+
+The wrong-diagnosis control, the diagnosis-emphasis variant, and the human calibration are summarized in `results/exp4v2/condition_C_wrong/summary.json`, `results/exp4v2/diagnosis_emphasis_summary.json`, and `results/human_eval/{clean,borderline}/aggregated.json`.
+
+`scripts/recompute_tier1_corrected.py` recomputes Tier-1 from the raw per-dialogue dumps, which are not shipped; it runs after a Track B rerun and should report Tier-1 RSR = 42.1% with MATCH group invariance PASS.
 
 ## Track B: Full rerun (requires GPUs + API, several hours)
 
@@ -151,5 +152,5 @@ The 106-scenario bank is tracked at `data/exp3v2_scenario_bank.json`, covering f
 ## Notes
 
 - Tier-2 rescoring uses GPT-5-mini with `max_completion_tokens=8192`.
-- The paper-authoritative `tier1_corrected/` and `tier2_corrected/` result directories are not tracked here; regenerate them by rerunning the scoring steps above.
+- The paper-authoritative `tier1_corrected/` and `tier2_corrected/` artifacts are shipped under `results/`; rerunning the scoring steps above regenerates them in place.
 - Results may vary slightly due to API model updates and sampling stochasticity.

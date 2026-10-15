@@ -2,10 +2,11 @@
 
 > **AACL-IJCNLP 2026** | Official Repository
 
-**Authors:** Woojin Lee\*, Yoonkyu Woo\*, Jinah Kim, Hyeok-Min Gwon, Jin-Xia Huang†  
-\* *Main contributors* | † *Corresponding author* (`hgh@etri.re.kr`)
+**Authors:** Woojin Lee<sup>1\*</sup>, Yoonkyu Woo<sup>1,2\*</sup>, Jinah Kim<sup>1,2</sup>, Hyeok-Min Gwon<sup>1</sup>, Jin-Xia Huang<sup>1,2†</sup>  
+\* *Co-first authors* | † *Corresponding author* (`hgh@etri.re.kr`)
 
-Electronics and Telecommunications Research Institute (ETRI), Republic of Korea
+<sup>1</sup> Electronics and Telecommunications Research Institute (ETRI), Republic of Korea  
+<sup>2</sup> Department of Artificial Intelligence, University of Science and Technology (UST), Republic of Korea
 
 MisconceptDialogue is an automated evaluation framework for studying whether LLM tutors can
 **detect** mathematical mistakes, **diagnose** the underlying misconception, and **remediate**
@@ -24,9 +25,10 @@ assets. The published paper makes no artifact-availability claim and cites no co
 Deliberately not tracked here:
 
 - downloaded dataset payloads under `datasets/` (fetch them with the script below)
-- generated experiment outputs under `results/` (regenerate by rerunning experiments)
-- paper sources, figures, reviews, rebuttal notes, and human-evaluation materials
-- internal notes, orchestration state, caches, secrets, logs, and model weights
+- raw per-dialogue run directories under `results/` (regenerate by rerunning experiments);
+  the final scoring artifacts behind the paper's numbers **are** included (see `results/README.md`)
+- paper sources and figures
+- caches, secrets, logs, and model weights
 
 ## Layout
 
@@ -39,11 +41,14 @@ MisconceptDialogue/
 │   └── wrong_diagnosis_mapping.json  # same-type swaps for the wrong-diagnosis control
 ├── datasets/              # Dataset download location (payloads untracked)
 │   └── README.md
-├── results/               # Experiment output location (outputs untracked)
+├── results/               # Final scoring artifacts behind the paper (see results/README.md)
 │   └── README.md
 ├── scripts/               # Reproduction and analysis scripts
 ├── src/                   # Experiment, model, data, and evaluation code
 ├── REPRODUCE.md           # Reproduction guide
+├── LICENSE                # MIT (software and result artifacts)
+├── DATA_LICENSE.md        # Third-party data terms for data/
+├── CITATION.cff
 ├── requirements.txt
 ├── .gitignore
 └── .env.example
@@ -94,28 +99,31 @@ python -m src.experiments.exp4v2.run --help
 
 ## Audit and scoring utilities
 
-These read result artifacts under `results/`, so they need outputs generated first (see
-`results/README.md` for the expected layout).
+These read the result artifacts under `results/`. The paper's final scoring artifacts are
+included, so the first three run as-is; the Tier-1 audit also needs the raw run directories from a
+rerun (see `results/README.md`).
 
 - Paper-number audit: `scripts/generate_paper_numbers.py`
 - Statistical audit: `scripts/corrected_results_analysis.py`
-- Tier-1 final-score audit: `scripts/recompute_tier1_corrected.py`
-- Tier-2 matched-context rescoring: `scripts/rescore_tier2_corrected.py`
 - Equivalence testing: `scripts/exp4v2_tost_corrected.py`
+- Tier-1 final-score audit: `scripts/recompute_tier1_corrected.py`
+- Tier-2 matched-context rescoring: `scripts/rescore_tier2_corrected.py` (requires OpenAI API)
 
 ## Reproduction
 
 See [`REPRODUCE.md`](REPRODUCE.md) for two tracks:
 
-- **Track A:** verification from precomputed result artifacts, if available.
-- **Track B:** full experiment rerun, including local tutor inference and API-based
-  simulated-student/judge evaluation.
+- **Track A:** verify the paper's numbers from the shipped result artifacts. No datasets, GPUs,
+  or API key needed; it takes minutes on a CPU.
+- **Track B:** if you want to, rerun every experiment from scratch, including local tutor inference
+  and API-based simulated-student/judge evaluation, and verify the regenerated outputs the same way.
 
 ## License and citation
 
-The MIT License in [`LICENSE`](LICENSE) governs the software. The bundled scenario/config
-assets under `data/` are derived from third-party datasets and remain subject to the upstream
-terms recorded in `LICENSE` (notably the ShareAlike condition of MathDial's CC BY-SA 4.0).
+The MIT License in [`LICENSE`](LICENSE) governs the software and the result artifacts. The bundled
+scenario/config assets under `data/` are derived from third-party datasets and remain subject to the
+upstream terms recorded in [`DATA_LICENSE.md`](DATA_LICENSE.md) (notably the ShareAlike condition of
+MathDial's CC BY-SA 4.0).
 
 Citation metadata is in [`CITATION.cff`](CITATION.cff):
 
