@@ -425,7 +425,7 @@ def main():
 
     # ── 8. Paper-ready values ──
     print("\n" + "=" * 60)
-    print("PAPER-READY VALUES (copy to acl_latex.tex)")
+    print("PAPER VALUES")
     print("=" * 60)
     print(f"Inter-annotator: Fleiss' kappa={fk_q1:.2f}")
     print(f"Table 9:")
