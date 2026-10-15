@@ -1,0 +1,82 @@
+{
+  "condition": "C_wrong",
+  "n": 530,
+  "valid": 530,
+  "errors": 0,
+  "tier2_success": 428,
+  "tier2_rsr": 0.8075471698113208,
+  "tier1_success": 227,
+  "tier1_rsr": 0.42830188679245285,
+  "arr_count": 41,
+  "arr": 0.07735849056603773,
+  "comparison": {
+    "C2_gold_diagnosis": 0.7660377358490567,
+    "B1_direct_tutoring": 0.7849056603773585,
+    "C_wrong": 0.8075471698113208
+  },
+  "paired_stats": {
+    "vs_C2": {
+      "condition": "C2",
+      "n": 530,
+      "c_wrong_success": 428,
+      "baseline_success": 406,
+      "c_wrong_rsr": 0.8075471698113208,
+      "baseline_rsr": 0.7660377358490567,
+      "diff_pp": 4.150943396226415,
+      "mcnemar_p": 0.07765321401762205,
+      "discordant_cwrong_success_baseline_fail": 82,
+      "discordant_cwrong_fail_baseline_success": 60,
+      "bootstrap95_diff_pp": [
+        -0.18867924528301888,
+        8.679245283018867
+      ]
+    },
+    "vs_B1": {
+      "condition": "B1",
+      "n": 530,
+      "c_wrong_success": 428,
+      "baseline_success": 416,
+      "c_wrong_rsr": 0.8075471698113208,
+      "baseline_rsr": 0.7849056603773585,
+      "diff_pp": 2.2641509433962264,
+      "mcnemar_p": 0.3153033008322578,
+      "discordant_cwrong_success_baseline_fail": 66,
+      "discordant_cwrong_fail_baseline_success": 54,
+      "bootstrap95_diff_pp": [
+        -1.6981132075471699,
+        6.415094339622642
+      ]
+    }
+  },
+  "per_model": {
+    "llama-3.1-8b": {
+      "n": 106,
+      "tier2_success": 72,
+      "tier2": 0.6792452830188679
+    },
+    "mistral-7b": {
+      "n": 106,
+      "tier2_success": 88,
+      "tier2": 0.8301886792452831
+    },
+    "phi-4": {
+      "n": 106,
+      "tier2_success": 94,
+      "tier2": 0.8867924528301887
+    },
+    "qwen-2.5-7b": {
+      "n": 106,
+      "tier2_success": 83,
+      "tier2": 0.7830188679245284
+    },
+    "qwen3.5-9b": {
+      "n": 106,
+      "tier2_success": 91,
+      "tier2": 0.8584905660377359
+    }
+  },
+  "mapping_methods": {
+    "same_type_nonduplicate": 530
+  },
+  "same_original_wrong_misconception_text": 0
+}

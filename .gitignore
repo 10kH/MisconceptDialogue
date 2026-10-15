@@ -17,9 +17,32 @@ logs/
 datasets/*
 !datasets/README.md
 
-# Generated experiment outputs
+# Generated experiment outputs. The final scoring artifacts behind the paper are tracked
+# (see results/README.md); raw run directories and other outputs are not.
 results/*
 !results/README.md
+!results/exp3v2/
+results/exp3v2/*
+!results/exp3v2/three_tier_analysis.json
+!results/exp3v2/tier1_corrected/
+!results/exp3v2/tier2_corrected/
+results/exp3v2/tier2_corrected/*
+!results/exp3v2/tier2_corrected/tier2_recomputed.json
+!results/exp3v2/tier2_corrected/checkpoint.json
+!results/exp4v2/
+results/exp4v2/*
+!results/exp4v2/corrected_analysis_summary.json
+!results/exp4v2/diagnosis_emphasis_summary.json
+!results/exp4v2/tost_analysis.txt
+!results/exp4v2/tier1_corrected/
+!results/exp4v2/tier2_corrected/
+results/exp4v2/tier2_corrected/*
+!results/exp4v2/tier2_corrected/tier2_recomputed.json
+!results/exp4v2/tier2_corrected/checkpoint.json
+!results/exp4v2/condition_C_wrong/
+results/exp4v2/condition_C_wrong/*
+!results/exp4v2/condition_C_wrong/summary.json
+!results/human_eval/
 
 # Human-evaluation / paper materials: excluded from this repository, but some
 # human-eval scripts still write here by default.
